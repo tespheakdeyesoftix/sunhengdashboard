@@ -1,5 +1,5 @@
 <template>
-  <Card>
+  <Card class="cs-w-100" >
     <template #title>Client's    Payment</template>
         <template #content>
     <DataTable

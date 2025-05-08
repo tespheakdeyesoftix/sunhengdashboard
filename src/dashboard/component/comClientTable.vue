@@ -1,5 +1,5 @@
 <template>
-        <Card class="cs-m-top-2">
+        <Card class="cs-w-100">
   <template #title>Performance Overview</template>
   <template #content>
     <DataTable :value="result" showGridlines stripedRows class="datatable-class">

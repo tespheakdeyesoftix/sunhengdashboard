@@ -1,108 +1,128 @@
 <template>
-    <div class="table-container">
     
-        <table class="dashboard-table">
-                            <tr class="section-header">
-                                <th colspan="5">Sales By Product</th>
-                            </tr>
-                            <tr class="table-header">
-                                <th></th>
-                                <th class="text-center">Frame</th>
-                                <th class="text-center">Lens</th>
-                                <th class="text-center">Sunglasses</th>
-                                <th class="text-center">Others</th>
-                            </tr>
-                            <tr v-for="i in saleData" :key="i.val_name">
-  <td class="text-start">
-    <span>{{ i.val_name }}</span>
-  </td>
+      <Card class="cs-m-top-2">
+  <template #content>
+    <div class="cs-flex">
+      <div class="cs-col-6">
+        <Card>
+      <template #title>Sales By Product</template>
+      <template #content>
+        <DataTable :value="saleData" stripedRows showGridlines class="datatable-class">
+          <Column header="">
+            <template #body="slotProps">
+              {{ slotProps.data.val_name }}
+            </template>
+          </Column>
 
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.frame_qty }}</span>
-      <span class="text-start">{{ i.frame_amount }}</span>
+          <Column  headerClass="position-center" header="Frame">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.frame_qty }}</span>
+                <span class="text-start">{{ slotProps.data.frame_amount }}</span>
+              </div>
+            </template>
+          </Column>
+
+          <Column headerClass="position-center" header="Lens">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.len_qty }}</span>
+                <span class="text-start">{{ slotProps.data.len_amount }}</span>
+              </div>
+            </template>
+          </Column>
+
+          <Column headerClass="position-center" header="Sunglasses">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.glasses_qty }}</span>
+                <span class="text-start">{{ slotProps.data.glasses_amount }}</span>
+              </div>
+            </template>
+          </Column>
+
+          <Column headerClass="position-center" header="Others">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.other_qty }}</span>
+                <span class="text-start">{{ slotProps.data.other_amount }}</span>
+              </div>
+            </template>
+          </Column>
+        </DataTable>
+      </template>
+    </Card>
+      </div>
+      <div class="cs-col-6">
+        <Card >
+      <template #title>Inventory Stock</template>
+      <template #content>
+        <DataTable :value="stockData" stripedRows showGridlines class="datatable-class">
+          <!-- Row Label -->
+          <Column header="">
+            <template #body="slotProps">
+              {{ slotProps.data.val_name }}
+            </template>
+          </Column>
+
+          <!-- Frame Column -->
+          <Column headerClass="position-center" header="Frame">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.frame_qty }}</span>
+                <span class="text-start">{{ slotProps.data.frame_amount }}</span>
+              </div>
+            </template>
+          </Column>
+
+          <!-- Lens Column -->
+          <Column headerClass="position-center" header="Lens">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.len_qty }}</span>
+                <span class="text-start">{{ slotProps.data.len_amount }}</span>
+              </div>
+            </template>
+          </Column>
+
+          <!-- Sunglasses Column -->
+          <Column headerClass="position-center" header="Sunglasses">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.glasses_qty }}</span>
+                <span class="text-start">{{ slotProps.data.glasses_amount }}</span>
+              </div>
+            </template>
+          </Column>
+
+          <!-- Others Column -->
+          <Column headerClass="position-center" header="Others">
+            <template #body="slotProps">
+              <div class="item-table w-100">
+                <span class="text-start">{{ slotProps.data.other_qty }}</span>
+                <span class="text-start">{{ slotProps.data.other_amount }}</span>
+              </div>
+            </template>
+          </Column>
+        </DataTable>
+      </template>
+    </Card>
+      </div>      
     </div>
-  </td>
+   
 
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.len_qty }}</span>
-      <span class="text-start">{{ i.len_amount }}</span>
-    </div>
-  </td>
+  </template>
+</Card>
 
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.glasses_qty }}</span>
-      <span class="text-start">{{ i.glasses_amount }}</span>
-    </div>
-  </td>
-
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.other_qty }}</span>
-      <span class="text-start">{{ i.other_amount }}</span>
-    </div>
-  </td>
-</tr>
-
-                            
-                        </table>
-                        <table class="dashboard-table cs-m-top-2">
-                            <tr class="section-header">
-                                <th colspan="5">Inventory Stock</th>
-                            </tr>
-                            <tr class="table-header">
-                                <th></th>
-                                <th>Frame</th>
-                                <th>Lens</th>
-                                <th>Sunglasses</th>
-                                <th>Others</th>
-                            </tr>
-                            <tr v-for="i in stockData" :key="i.val_name">
-  <td class="text-start">
-    <span>{{ i.val_name }}</span>
-  </td>
-
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.frame_qty }}</span>
-      <span class="text-start">{{ i.frame_amount }}</span>
-    </div>
-  </td>
-
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.len_qty }}</span>
-      <span class="text-start">{{ i.len_amount }}</span>
-    </div>
-  </td>
-
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.glasses_qty }}</span>
-      <span class="text-start">{{ i.glasses_amount }}</span>
-    </div>
-  </td>
-
-  <td class="text-end">
-    <div class="item-table w-100">
-      <span class="text-start">{{ i.other_qty }}</span>
-      <span class="text-start">{{ i.other_amount }}</span>
-    </div>
-  </td>
-</tr>
-
-                            </table>
-    
                        
-    
-       
-    </div>
+
     </template>
     <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useApi } from '@/composables/useApi';
+import { useApi } from '@/composables/useAPI';
+import DataTable from 'primevue/datatable';
+import Card from 'primevue/card';
+import Column from 'primevue/column';
 const result = ref(null);
 const saleData = ref(null);
 const stockData = ref(null);

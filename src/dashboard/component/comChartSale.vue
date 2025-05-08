@@ -1,11 +1,18 @@
 <template>
-  <Card>
-    <template #title>Sales</template>
+  
+  <Card class="sale-bg">
+    <template #title>
+      <span class="title">
+        Actual vs Estimated Sales
+      </span>
+      </template>
     <template #content>
+      <div class="table-container sale-bg-table">
     <div ref="chart" style="width: 100%; height: 400px;"></div>
+     </div>
     </template>
   </Card>
-  
+ 
 </template>
 
 <script setup>
@@ -31,10 +38,6 @@ const initChart = () => {
   const myChart = echarts.init(chart.value)
 
   const option = {
-    title: {
-      text: 'Actual vs Estimated Sales',
-      left: 'center'
-    },
     tooltip: {
       trigger: 'axis'
     },

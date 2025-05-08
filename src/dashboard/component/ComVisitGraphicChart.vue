@@ -1,17 +1,14 @@
 <template>
-  <Card class="product-bg">
-     <template #title>
-      <span class="title">
-         Sale Product Graphic
-      </span>
-     </template>
+<Card>
+     <template #title>Sales</template>
      <template #content>
-  <div class="table-container product-bg-table">
-    <div ref="chart" style="height: 400px;"></div>
-  </div>
-</template>
+    <div class="table-container">
+        <div ref="chart" style="height: 400px;"></div>
+    </div>
+    </template>
+ 
 </Card>
-</template>
+ </template>
 <script setup>
 import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
@@ -20,28 +17,31 @@ import Card from 'primevue/card';
 const result = ref(null);
 const { error, loading, request } = useApi();
 
+// Fetch data from API
 const loadData = async () => {
   result.value = await request('/GetData', 'POST', {
     procedure_name: 'sp_get_sale_product_graphic'
   });
 };
 
+// ECharts setup
 const chart = ref(null);
 const setChart = () => {
   const data = result.value;
 
   const months = data.map(item => `${item.month}-${item.year}`);
-  const frameQty = data.map(item => item.frame_qty);
-  const lenQty = data.map(item => item.len_qty);
-  const glassesQty = data.map(item => item.glasses_qty);
-  const otherQty = data.map(item => item.other_qty);
+  const visits = data.map(item => item.visits);
+  const exams = data.map(item => item.exams);
+  const solds = data.map(item => item.solds);
+  const targetSales = data.map(item => item.target_sales);
+  const different = data.map(item => item.different);
 
   const option = {
     tooltip: {
       trigger: 'axis'
     },
     legend: {
-      data: ['Frame Qty', 'Len Qty', 'Glasses Qty', 'Other Qty']
+      data: ['Visits', 'Exams', 'Solds', 'Target Sales', 'Different']
     },
     xAxis: {
       type: 'category',
@@ -52,24 +52,29 @@ const setChart = () => {
     },
     series: [
       {
-        name: 'Frame Qty',
+        name: 'Visits',
         type: 'line',
-        data: frameQty
+        data: visits
       },
       {
-        name: 'Len Qty',
+        name: 'Exams',
         type: 'line',
-        data: lenQty
+        data: exams
       },
       {
-        name: 'Glasses Qty',
+        name: 'Solds',
         type: 'line',
-        data: glassesQty
+        data: solds
       },
       {
-        name: 'Other Qty',
+        name: 'Target Sales',
         type: 'line',
-        data: otherQty
+        data: targetSales
+      },
+      {
+        name: 'Different',
+        type: 'line',
+        data: different
       }
     ]
   };
@@ -86,9 +91,11 @@ onMounted(async () => {
 });
 </script>
 
-      <style scoped>
-  .table-container{
-    padding:15px;
-    border-radius: 20px;
-  }
-  </style>
+  
+        <style scoped>
+    .table-container{
+      background-color: rgb(250, 250, 250); 
+      padding:15px;
+      border-radius: 20px;
+    }
+    </style>
