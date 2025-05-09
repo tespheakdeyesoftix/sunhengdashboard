@@ -30,22 +30,19 @@
                <comSaleTable />
             </div>
         </div> 
-        <div class="cs-w-100 cs-m-top-2"> 
-            <div class="cs-col-6">
+        <div class="cs-flex cs-w-100 cs-m-top-2"> 
+            <div class="cs-col-8">
                 <ComTargetGraphicChart />  
             </div>
-            <div class="cs-col-6">
+            <div class="cs-col-4">
                 <comProductTable /> 
             </div>
         </div>    
-        <div class="cs-w-100">
-
+        <div class="cs-w-100 cs-m-top-2">
                     <div class=""> 
                         <ComVisitGraphicChart />
-                        
                     </div>
-                    
-                        <Card>
+                        <Card class="bg-visit cs-m-top-2">
      <template #content>
         <div class="cs-flex cs-w-100">
                         <div class="cs-col-4">

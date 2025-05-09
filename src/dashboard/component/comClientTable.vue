@@ -1,5 +1,5 @@
 <template>
-        <Card class="cs-w-100">
+        <Card class="cs-w-100 bg-visit-table">
   <template #title>Performance Overview</template>
   <template #content>
     <DataTable :value="result" showGridlines stripedRows class="datatable-class">
@@ -71,105 +71,7 @@
 
     </DataTable>
   </template>
-</Card> 
-    <!-- <div class="table-container">
-        <table class="dashboard-table">
-                            <tr class="section-header">
-                                <th colspan="9">Client</th>
-                            </tr>
-                            <tr class="table-header">
-                                <th></th>
-                                <th>No.</th>
-                                <th>Exam</th>
-                                <th>Sold Exam</th>
-                                <th>CV</th>
-                                <th>Sold</th>
-                                <th>Target</th>
-                                <th>Dif.</th>
-                                <th>FTW</th>
-                            </tr>
-                            <tr>
-                                <td>Today</td>
-                                <td> $715</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                
-                            </tr>
-                            <tr>
-                                <td>Week</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                
-                            </tr>
-                        </table>
-                        <table class="dashboard-table cs-m-top-2">
-                            <tr class="cogs-header">
-                                <th colspan="3">Appointment & Follow</th>
-                                <th colspan="5">Tracking Channels</th>
-                            </tr>
-                            <tr class="table-header">
-                                <th></th>
-                                <th>FU</th>
-                                <th>AP</th>
-                                <th>LY</th>
-                                <th>TT</th>
-                                <th>FB</th>
-                                <th>GL</th>
-                                <th>OT</th>
-                            </tr>
-                            <tr>
-                                <td>Week</td>
-                                <td>2</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>7</td>
-                                <td>2</td>
-                                <td>4</td>
-                                <td>7</td>
-                            </tr>
-                            </table>
-                            <table class="dashboard-table cs-m-top-2">
-                            <tr class="section-header">
-                                <th colspan="9">Client's Payment</th>
-                            </tr>
-                            <tr class="table-header">
-                                <th></th>
-                                <th>No. Paid</th>
-                                <th>Amount</th>
-                                <th>Remain</th>
-                                <th>Amount</th>
-                            </tr>
-                            <tr>
-                                <td>Today</td>
-                                <td> $715</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                            </tr>
-                            <tr>
-                                <td>Week</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                                <td>$500</td>
-                            </tr>
-                        </table>
-    
-                       
-    
-       
-    </div> -->
-    
+</Card>  
     </template>
     <script setup>
 import { ref, onMounted, computed } from 'vue';
@@ -179,9 +81,6 @@ import Card from 'primevue/card';
 import Column from 'primevue/column';
 import { useApi } from '../../composables/useAPI';
 const result = ref(null);
-const saleData = ref(null);
-const cogsData = ref(null);
-const profitData = ref(null);
 const { error, loading, request } = useApi();
 const loadData = async () => {
     result.value =

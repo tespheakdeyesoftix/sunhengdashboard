@@ -1,8 +1,8 @@
 <template>
-<Card>
-     <template #title>Sales</template>
+<Card class="bg-visit">
+     <template #title>Visit</template>
      <template #content>
-    <div class="table-container">
+    <div class="table-container bg-visit-table">
         <div ref="chart" style="height: 400px;"></div>
     </div>
     </template>
@@ -20,7 +20,7 @@ const { error, loading, request } = useApi();
 // Fetch data from API
 const loadData = async () => {
   result.value = await request('/GetData', 'POST', {
-    procedure_name: 'sp_get_sale_product_graphic'
+    procedure_name: 'sp_get_visit_graphic'
   });
 };
 

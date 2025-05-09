@@ -32,6 +32,12 @@ html{
 .product-bg-table{
   background: #e2faff !important;
 }
+.bg-visit{
+  background-color: #d2e2ff !important;
+}
+.bg-visit-table{
+  background: #e3edfe !important; 
+}
 .title{
   font-weight: bold;
 }

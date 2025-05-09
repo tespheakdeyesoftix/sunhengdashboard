@@ -1,10 +1,10 @@
 <template>
     
-      <Card class="cs-m-top-2">
+      <Card style="height: 100%;" class="product-bg">
   <template #content>
-    <div class="cs-flex">
+    <div class="">
       <div class="cs-col-6">
-        <Card>
+        <Card class="product-bg-table">
       <template #title>Sales By Product</template>
       <template #content>
         <DataTable :value="saleData" stripedRows showGridlines class="datatable-class">
@@ -53,8 +53,8 @@
       </template>
     </Card>
       </div>
-      <div class="cs-col-6">
-        <Card >
+      <div class="cs-col-6 cs-m-top-2">
+        <Card  class="product-bg-table">
       <template #title>Inventory Stock</template>
       <template #content>
         <DataTable :value="stockData" stripedRows showGridlines class="datatable-class">
