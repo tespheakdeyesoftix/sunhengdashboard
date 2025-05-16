@@ -138,6 +138,9 @@ const loadData = async () => {
 onMounted(async () => {
     loadData()
 });
+defineExpose({
+  loadData
+})
 </script>
     <style scoped>
 .table-container{

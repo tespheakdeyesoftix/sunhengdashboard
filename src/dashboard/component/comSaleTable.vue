@@ -166,8 +166,8 @@ const loadData = async () => {
 };
 onMounted(async () => {
   loadData()
-  await request("/Outlet?$select=id,outlet_name").then(x => {
-    console.log(x.value)
-  })
 });
+defineExpose({
+  loadData
+})
 </script>

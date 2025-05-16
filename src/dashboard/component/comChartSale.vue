@@ -24,12 +24,13 @@ import { useApi } from '../../composables/useAPI'
 const chart = ref(null)
 const result = ref([])
 const { error, loading, request } = useApi()
-
+const res = ref()
 const loadData = async () => {
-  const res = await request('/GetData', 'POST', {
+  res.value = await request('/GetData', 'POST', {
     procedure_name: 'sp_get_sale_actual_and_target_chart'
   })
-  result.value = res
+  result.value = res.value
+  initChart()
 }
 
 const initChart = () => {
@@ -82,6 +83,8 @@ const initChart = () => {
 
 onMounted(async () => {
   await loadData()
-  initChart()
+})
+defineExpose({
+  loadData
 })
 </script>

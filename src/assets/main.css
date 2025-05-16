@@ -12,6 +12,9 @@ html{
   padding:10px;
   box-sizing: border-box;
 }
+.p-multiselect-header{
+  display: none !important;
+}
  body {
   margin: 0;
   height: 100%;
@@ -121,12 +124,7 @@ background-color: rgb(255, 255, 255);
 .cs-w-100{
   width: 100%;
 }
-.cs-col-4 {
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-  padding-right: 5px;
-  padding-left: 5px;
-}
+
 .cs-bg-red{
   background-color: red;
 }
@@ -232,4 +230,24 @@ padding: 5px !important;
   align-items: center;
   margin-top: -10px;
   margin-bottom: 10px;
+}
+
+.cs-col-4 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .cs-col-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+@media (min-width: 1024px) {
+  .cs-col-4 {
+    flex: 0 0 33.3333% !important;
+    max-width: 33.3333% !important;
+  }
 }

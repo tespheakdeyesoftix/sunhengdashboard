@@ -84,6 +84,9 @@ onMounted(async () => {
   await loadData();
   setChart();
 });
+defineExpose({
+  loadData
+})
 </script>
 
       <style scoped>

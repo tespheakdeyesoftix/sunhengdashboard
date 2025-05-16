@@ -14,10 +14,11 @@
     <Column field="payments" header="Payments" />
     <Column field="total_amount" header="Total Amount" />
     <Column field="balance" header="Balance" />
-  </DataTable>            
+  </DataTable>         
         </template>
   
   </Card>
+ 
     </template>
     <script setup>
 import { ref, onMounted, computed } from 'vue';
@@ -36,6 +37,9 @@ const loadData = async () => {
 onMounted(async () => {
     loadData()
 });
+defineExpose({
+  loadData
+})
 </script>
     <style scoped>
 .table-container{
