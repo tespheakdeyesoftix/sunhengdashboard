@@ -35,6 +35,7 @@
         <div class="cs-flex cs-w-100 cs-col-4 "> 
             <div class="cs-w-100" >
                 <ComTargetGraphicChart ref="TargetGraphicChart" />  
+                <comSaleTargetGraphicChart ref="SaleTargetGraphicChart" />  
                 <comProductTable ref="ProductTable" /> 
             </div>
         </div>    
@@ -76,6 +77,7 @@ import { useApi } from '@/composables/useAPI';
 import ComClientPaymentTable from './component/comClientPaymentTable.vue';
 import ComTrackingChannel from './component/comTrackingChannel.vue';
 import ComTargetGraphicChart from './component/comTargetGraphicChart.vue';
+import comSaleTargetGraphicChart from './component/comSaleTargetGraphicChart.vue';
 import ComVisitGraphicChart from './component/ComVisitGraphicChart.vue';
 import Card from 'primevue/card';
 import ComFollowUpTable from './component/comFollowUpTable.vue';
@@ -100,6 +102,7 @@ const ChartSale = ref(null)
 const SaleTable = ref(null)
 const ProductTable = ref(null)
 const TargetGraphicChart = ref(null)
+const SaleTargetGraphicChart = ref(null)
 const VisitGraphicChart = ref(null)
 const ClientTable = ref(null)
 const TrackingChannel = ref(null)
@@ -110,6 +113,7 @@ function onRfresh(){
     SaleTable.value?.loadData()
     ProductTable.value?.loadData()
     TargetGraphicChart.value?.loadData()
+    SaleTargetGraphicChart.value?.loadData()
     VisitGraphicChart.value?.loadData()
     ClientTable.value?.loadData()
     TrackingChannel.value?.loadData()

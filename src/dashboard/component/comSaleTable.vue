@@ -81,7 +81,8 @@
                 <Column headerClass="positoin-center" header="Difference">
                   <template #body="slotProps">
                     <div class="item-table w-100"
-                      :class="parseFloat(slotProps.data.different_amount.replace(/[$,%]/g, '')) > 0 ? 'positive' : 'negative'">
+                      :class="getDifferenceClass(slotProps.data.different_amount)"
+>
                       <span class="text-start">{{ slotProps.data.different_transactions }}</span>
                       <span class="text-start">{{ slotProps.data.different_amount }}</span>
                     </div>
@@ -164,6 +165,18 @@ const loadData = async () => {
   cogsData.value = result.value.filter(i => i.section === 'COGS');
   profitData.value = result.value.filter(i => i.section === 'Profit');
 };
+const getDifferenceClass = (val) => {
+  if (!val || typeof val !== 'string') return 'negative';
+
+  // Remove unwanted characters and parse
+  const num = parseFloat(val.replace(/[$,%]/g, '').trim());
+
+  // Check for NaN and apply logic
+  if (isNaN(num)) return 'negative';
+
+  return num > 0 ? 'positive' : 'negative';
+};
+
 onMounted(async () => {
   loadData()
 });

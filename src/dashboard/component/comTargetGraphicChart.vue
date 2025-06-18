@@ -1,13 +1,11 @@
 <template>
   <Card class="product-bg">
      <template #title>
-      <span class="title">
          Sale Product Graphic
-      </span>
      </template>
      <template #content>
   <div class="table-container product-bg-table">
-    <div ref="chart" style="height: 400px;"></div>
+    <div ref="chart" style="height: 200px;"></div>
   </div>
 </template>
 </Card>
