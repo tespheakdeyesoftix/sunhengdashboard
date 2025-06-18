@@ -23,24 +23,7 @@ html{
   box-sizing: border-box;
   padding: 10px 10px 10px 0px ;
 }
-.sale-bg{
-  background: #c9fff7 !important;
-}
-.product-bg{
-  background: #c9f5ff !important;
-}
-.sale-bg-table{
-  background: #f2fffd !important; 
-}
-.product-bg-table{
-  background: #e2faff !important;
-}
-.bg-visit{
-  background-color: #d2e2ff !important;
-}
-.bg-visit-table{
-  background: #e3edfe !important; 
-}
+
 .title{
   font-weight: bold;
 }
@@ -102,12 +85,7 @@ background-color: rgb(255, 255, 255);
 .cs-flex {
   display: flex;
 }
-.bg-sale-product{
-  background: #90d5ff !important;
-}
-.bg-sale-product-table{
-  background: #acdefd !important;
-}
+
 .item-table{
   display: flex;
   justify-content: space-between;
@@ -220,7 +198,9 @@ padding: 5px !important;
   background-color: #ccc;
 
 }
-
+.p-card-title{
+  font-size: 13px !important;
+}
 .table-header th{
   font-weight: 600;
 }
@@ -231,7 +211,18 @@ padding: 5px !important;
   margin-top: -10px;
   margin-bottom: 10px;
 }
-
+.card-style .p-card-body{
+  padding-right: 0 !important;
+}
+.p-card-body{
+  padding: 10px !important;
+}
+.col-down{
+  flex-direction: column;
+}
+table{
+  font-size: 10px;
+}
 .cs-col-4 {
   flex: 0 0 33.3333%;
   max-width: 33.3333%;

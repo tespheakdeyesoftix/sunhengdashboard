@@ -1,5 +1,5 @@
 <template>
-  <Card class="bg-visit-table">
+  <Card >
     <template #title>Tracking Channel</template>
         <template #content>
     <DataTable

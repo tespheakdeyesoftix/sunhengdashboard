@@ -1,6 +1,6 @@
 <template>
     
-      <Card style="height: 100%;" class="product-bg">
+      <Card class="product-bg">
   <template #content>
     <div class="">
       <div class="cs-col-6">
@@ -40,7 +40,6 @@
               </div>
             </template>
           </Column>
-
           <Column headerClass="position-center" header="Others">
             <template #body="slotProps">
               <div class="item-table w-100">

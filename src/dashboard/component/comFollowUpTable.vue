@@ -1,17 +1,20 @@
 <template>
-    <Card class="cs-w-100 bg-visit-table" >
-      <template #title>Appointment And Follow Up</template>
-          <template #content>
+    <Card class="cs-w-100 card-style" style="margin: 0;" >
+      <template #title> Follow Up
+        </template>
+          <template #content class="style-card">
       <DataTable
       :value="result"
-      class="datatable-class"
+      class="datatable-class cs-w-100"
+      
       responsiveLayout="scroll"
       stripedRows showGridlines
       
     >
       <Column field="val_name" header="Period" />
-      <Column field="appointments" header="Appointments" />
-      <Column field="follow_ups" header="Follow Ups" />
+      <Column field="follow_ups" header="FU" />
+      <Column field="appointments" header="AP" />
+      
     </DataTable>         
           </template>
     

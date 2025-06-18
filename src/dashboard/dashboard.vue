@@ -25,53 +25,36 @@
     </div>
   </div>
         </div>
-    <div class="container">
-        <div class="cs-w-100"> 
-            <div class="cs-col-6">
-                <comChartSale ref="ChartSale" />
-            </div>
-            <div class="cs-col-6">
-               <comSaleTable ref="SaleTable" />
+    <div class="container cs-flex">
+        <div class="cs-w-100 cs-col-4"> 
+            <div class="cs-col-6 sale-bg">
+                 <comChartSale ref="ChartSale" /> 
+                 <comSaleTable ref="SaleTable" />
             </div>
         </div> 
-        <div class="cs-flex cs-w-100 cs-m-top-2"> 
-            <div class="cs-col-8">
+        <div class="cs-flex cs-w-100 cs-col-4 "> 
+            <div class="cs-w-100" >
                 <ComTargetGraphicChart ref="TargetGraphicChart" />  
-            </div>
-            <div class="cs-col-4">
                 <comProductTable ref="ProductTable" /> 
             </div>
         </div>    
-        <div class="cs-w-100 cs-m-top-2">
-            <div class="cs-flex">
-<div class="cs-col-8"> 
+        <div class="cs-w-100 cs-col-4">
+       
                         <ComVisitGraphicChart ref="VisitGraphicChart" />
-                    </div>
-                    <div class="cs-col-4">
-                        <Card class="bg-visit" style="height: 100%;">
-                            <template #content>
                         <comClientTable ref="ClientTable" /> 
-                                </template>
-                        </Card>
-                    </div>
-            </div>
-                    
-                        <Card class="bg-visit cs-m-top-2">
-     <template #content>
+                  
         <div class="cs-flex cs-w-100">
-                        <div class="cs-col-4">
-                          <ComTrackingChannel ref="TrackingChannel" />  
-                        </div>
-                        <div class="cs-col-4">
+                        <div class="cs-col-4 cs-w-100" style="margin: 0; padding: 0;">
                            <ComFollowUpTable ref="FollowUpTable" />
                         </div>
-                        <div class="cs-col-4">
+                        <div class="cs-col-8" style="margin: 0; padding: 0;">
+                           <ComTrackingChannel ref="TrackingChannel" /> 
+                        </div>
+                      
+                     </div>
+                       <div class="cs-w-100">
                             <ComClientPaymentTable ref="ClientPaymentTable"/>
                         </div>
-                     </div>
-     </template>
-                    
-                        </Card>
                     </div>
 
        

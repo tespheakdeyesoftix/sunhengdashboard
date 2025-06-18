@@ -1,9 +1,9 @@
 <template>
 
-  <Card class="cs-m-top-2 bg-sale-product">
+  <Card class="cs-m-top-2">
     <template #content>
-      <div class="cs-flex">
-        <div class="cs-col-4">
+      <div class="cs-flex col-down">
+        <div>
           <Card class="bg-sale-product-table">
             <template #title>Sales</template>
             <template #content>
@@ -44,7 +44,7 @@
             </template>
           </Card>
         </div>
-        <div class="cs-col-4">
+        <div class="cs-m-top-2">
           <Card class="bg-sale-product-table">
             <template #title>COGS and Rate</template>
             <template #content>
@@ -92,7 +92,7 @@
             </template>
           </Card>
         </div>
-        <div class="cs-col-4">
+        <div class="cs-m-top-2">
           <Card class="bg-sale-product-table">
             <template #title>Profit and Rate</template>
             <template #content>

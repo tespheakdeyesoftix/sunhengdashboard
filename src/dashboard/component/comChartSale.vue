@@ -1,13 +1,13 @@
 <template>
   
-  <Card class="sale-bg">
+  <Card >
     <template #title>
       <span class="title">
         Actual vs Estimated Sales
       </span>
       </template>
     <template #content>
-      <div class="table-container sale-bg-table">
+      <div class="table-container">
     <div ref="chart" style="width: 100%; height: 400px;"></div>
      </div>
     </template>
