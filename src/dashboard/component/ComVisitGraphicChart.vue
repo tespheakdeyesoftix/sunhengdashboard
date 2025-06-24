@@ -1,5 +1,5 @@
 <template>
-<Card class="bg-visit">
+<Card >
      <template #title>Visit</template>
      <template #content>
     <div class="table-container bg-visit-table">

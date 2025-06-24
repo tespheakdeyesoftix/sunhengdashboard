@@ -1,16 +1,11 @@
 <template>
-    <Card class="cs-w-100 card-style" style="margin: 0;" >
-      <template #title> Follow Up
-        </template>
+    <Card class="cs-w-100 card-style" style="margin-top:10; margin-right: 10px;" >
+      <template #title> Follow Up </template>
           <template #content class="style-card">
       <DataTable
       :value="result"
-      class="datatable-class cs-w-100"
-      
-      responsiveLayout="scroll"
-      stripedRows showGridlines
-      
-    >
+      class="datatable-class cs-w-100" sresponsiveLayout="scroll"
+      stripedRows showGridlines >
       <Column field="val_name" header="Period" />
       <Column field="follow_ups" header="FU" />
       <Column field="appointments" header="AP" />

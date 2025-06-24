@@ -211,11 +211,38 @@ padding: 5px !important;
   margin-top: -10px;
   margin-bottom: 10px;
 }
+.sale-bg{
+  background: #54fc98;
+    padding: 5px;
+    border-radius: 10px;
+}
+.bg-sale-product{
+    background: #a8fc54;
+    padding: 5px;
+    border-radius: 10px;
+}
+.sale-bg .p-card{
+  background-color: rgba(255, 255, 255, 0.571);
+}
+.bg-sale-product .p-card{
+    background-color: rgba(255, 255, 255, 0.571);
+  margin-top: 5px;
+}
+.bg-visit .p-card{
+      background-color: rgba(255, 255, 255, 0.571);
+      margin-top: 5px;
+}
+
+.bg-visit{
+  background-color: red;
+  border-radius: 10px;
+  margin-left: 5px;
+}
 .card-style .p-card-body{
   padding-right: 0 !important;
 }
 .p-card-body{
-  padding: 10px !important;
+  padding: 6px !important;
 }
 .col-down{
   flex-direction: column;

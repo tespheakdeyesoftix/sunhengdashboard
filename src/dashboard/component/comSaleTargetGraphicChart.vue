@@ -1,6 +1,6 @@
 <template>
   <Card >
-    <template #title>Sale Product Graphic
+    <template #title>Sales by Number Of Products
     </template>
     <template #content>
       <div class="table-container product-bg-table">

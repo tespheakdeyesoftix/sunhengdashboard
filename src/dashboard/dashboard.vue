@@ -32,20 +32,20 @@
                  <comSaleTable ref="SaleTable" />
             </div>
         </div> 
-        <div class="cs-flex cs-w-100 cs-col-4 "> 
+        <div class="cs-flex cs-w-100 cs-col-4 bg-sale-product"> 
             <div class="cs-w-100" >
                 <ComTargetGraphicChart ref="TargetGraphicChart" />  
                 <comSaleTargetGraphicChart ref="SaleTargetGraphicChart" />  
                 <comProductTable ref="ProductTable" /> 
             </div>
         </div>    
-        <div class="cs-w-100 cs-col-4">
+        <div class="cs-w-100 cs-col-4 bg-visit">
        
                         <ComVisitGraphicChart ref="VisitGraphicChart" />
                         <comClientTable ref="ClientTable" /> 
                   
         <div class="cs-flex cs-w-100">
-                        <div class="cs-col-4 cs-w-100" style="margin: 0; padding: 0;">
+                        <div class="cs-col-4 cs-w-100" style="margin-left: 0; padding: 0;margin-right:5px;">
                            <ComFollowUpTable ref="FollowUpTable" />
                         </div>
                         <div class="cs-col-8" style="margin: 0; padding: 0;">
