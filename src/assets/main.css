@@ -212,12 +212,13 @@ padding: 5px !important;
   margin-bottom: 10px;
 }
 .sale-bg{
-  background: #54fc98;
+  background: #9bf8ec;
     padding: 5px;
     border-radius: 10px;
+    height: 100%;
 }
 .bg-sale-product{
-    background: #a8fc54;
+    background: #a67af8;
     padding: 5px;
     border-radius: 10px;
 }
@@ -234,7 +235,7 @@ padding: 5px !important;
 }
 
 .bg-visit{
-  background-color: red;
+  background-color: #6f79f8;
   border-radius: 10px;
   margin-left: 5px;
 }

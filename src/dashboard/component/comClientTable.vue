@@ -12,7 +12,7 @@
       </Column>
 
       <!-- No. (Visits) -->
-      <Column header="No." headerClass="text-center">
+      <Column header="Visit" headerClass="text-center">
         <template #body="slotProps">
           {{ slotProps.data.visits }}
         </template>

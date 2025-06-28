@@ -41,7 +41,7 @@ const setChart = () => {
       trigger: 'axis'
     },
     legend: {
-      data: ['Visits', 'Exams', 'Solds', 'Target Sales', 'Different']
+      data: ['Visits', 'Exams','Solds Exams', 'Solds', 'Target']
     },
     xAxis: {
       type: 'category',
@@ -62,19 +62,19 @@ const setChart = () => {
         data: exams
       },
       {
+        name: 'Solds Exams',
+        type: 'line',
+        data: exams
+      },
+      {
         name: 'Solds',
         type: 'line',
         data: solds
       },
       {
-        name: 'Target Sales',
+        name: 'Target',
         type: 'line',
         data: targetSales
-      },
-      {
-        name: 'Different',
-        type: 'line',
-        data: different
       }
     ]
   };

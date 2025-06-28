@@ -25,7 +25,7 @@
     </div>
   </div>
         </div>
-    <div class="container cs-flex">
+    <div class="container cs-flex h-full">
         <div class="cs-w-100 cs-col-4"> 
             <div class="cs-col-6 sale-bg">
                  <comChartSale ref="ChartSale" /> 
@@ -33,22 +33,28 @@
             </div>
         </div> 
         <div class="cs-flex cs-w-100 cs-col-4 bg-sale-product"> 
-            <div class="cs-w-100" >
-                <ComTargetGraphicChart ref="TargetGraphicChart" />  
+            <div class="cs-w-100" >  
                 <comSaleTargetGraphicChart ref="SaleTargetGraphicChart" />  
+                <ComTargetGraphicChart ref="TargetGraphicChart" />  
                 <comProductTable ref="ProductTable" /> 
             </div>
         </div>    
         <div class="cs-w-100 cs-col-4 bg-visit">
-       
+      
+
                         <ComVisitGraphicChart ref="VisitGraphicChart" />
+          <card>     
+            <template #content>                   
                         <comClientTable ref="ClientTable" /> 
-                  
-        <div class="cs-flex cs-w-100">
+            </template>                      
+       </card>
+        <card>     
+            <template #content>     
+        <div class="cs-flex cs-w-100"> 
                         <div class="cs-col-4 cs-w-100" style="margin-left: 0; padding: 0;margin-right:5px;">
                            <ComFollowUpTable ref="FollowUpTable" />
                         </div>
-                        <div class="cs-col-8" style="margin: 0; padding: 0;">
+                        <div class="cs-col-8" style="margin-left: 0; padding: 0;margin-right:5px;">
                            <ComTrackingChannel ref="TrackingChannel" /> 
                         </div>
                       
@@ -56,6 +62,8 @@
                        <div class="cs-w-100">
                             <ComClientPaymentTable ref="ClientPaymentTable"/>
                         </div>
+          </template>                      
+       </card>
                     </div>
 
        

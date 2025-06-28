@@ -1,5 +1,5 @@
 <template>
-  <Card >
+  <Card style="margin-right:5px;" >
     <template #title>Tracking Channel</template>
         <template #content>
     <DataTable

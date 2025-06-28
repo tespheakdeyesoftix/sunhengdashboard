@@ -1,11 +1,10 @@
 <template>
   <Card class="product-bg">
      <template #title>
-         Sales by Products
-     </template>
+Sales by Number Of Products      </template>
      <template #content>
   <div class="table-container product-bg-table">
-    <div ref="chart" style="height: 200px;"></div>
+    <div ref="chart" style="height: 300px;"></div>
   </div>
 </template>
 </Card>
