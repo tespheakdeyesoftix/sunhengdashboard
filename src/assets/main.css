@@ -173,13 +173,10 @@ padding: 5px !important;
 
 .footer-msg {
   margin-top: 10px;
-  padding: 10px;
   font-style: italic;
-  color: purple;
-  background-color: #fce4ec;
+  background-color: #c9edfb;
   border: 1px solid #ccc;
 }
-
 .yellow {
   background-color: yellow;
 }
@@ -198,12 +195,47 @@ padding: 5px !important;
   background-color: #ccc;
 
 }
+.p-card-body{
+      gap: 0 !important;
+      padding: 0 !important;
+}
+.bg-sale-product-table .p-card-title{
+  background-color: #01b0f0;
+}
+
+.bg-sale-product-table tr:nth-child(odd) {
+  background-color: #c9edfb !important;
+}
+.product-bg-table .p-card-title{
+
+  background-color: #5277e7;
+}
+.header-title{
+  padding-left: 6px;
+}
 .p-card-title{
   font-size: 13px !important;
+  text-align: center;
+  border-radius: 2px;
+}
+.cart-table{
+      border: 1px solid;
+    border-radius: 3px !important;
 }
 .table-header th{
   font-weight: 600;
 }
+.product-bg-table tr:nth-child(odd) {
+  background-color: #dde3f6 !important;
+}
+.bg-visit-table tr:nth-child(odd) {
+  background-color: #e6eaf8 !important;
+}
+.bg-visit-table .p-card-title{
+ background-color: #0081e2 ;
+}
+
+
 .header-title{
   display: flex;
   justify-content: space-between;
@@ -212,13 +244,13 @@ padding: 5px !important;
   margin-bottom: 10px;
 }
 .sale-bg{
-  background: #9bf8ec;
+  border:2px solid #90d7ed;
     padding: 5px;
     border-radius: 10px;
     height: 100%;
 }
 .bg-sale-product{
-    background: #a67af8;
+   border:2px solid #a58df4;
     padding: 5px;
     border-radius: 10px;
 }
@@ -235,16 +267,14 @@ padding: 5px !important;
 }
 
 .bg-visit{
-  background-color: #6f79f8;
+  border:2px solid #b1c5e5;
   border-radius: 10px;
   margin-left: 5px;
 }
 .card-style .p-card-body{
   padding-right: 0 !important;
 }
-.p-card-body{
-  padding: 6px !important;
-}
+
 .col-down{
   flex-direction: column;
 }

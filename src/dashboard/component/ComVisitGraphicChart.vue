@@ -2,7 +2,7 @@
 <Card >
      <template #title>Visit</template>
      <template #content>
-    <div class="table-container bg-visit-table">
+    <div class="table-container bg-visit-table cart-table">
         <div ref="chart" style="height: 400px;"></div>
     </div>
     </template>

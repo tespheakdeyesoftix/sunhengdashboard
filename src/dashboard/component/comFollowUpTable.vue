@@ -1,5 +1,5 @@
 <template>
-    <Card class="cs-w-100 card-style" style="margin-top:10; margin-right: 10px;" >
+    <Card class="cs-w-100 card-style bg-visit-table" style="margin-top:10; margin-right: 10px;" >
       <template #title> Follow Up </template>
           <template #content class="style-card">
       <DataTable

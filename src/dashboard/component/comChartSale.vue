@@ -7,7 +7,7 @@
       </span>
       </template>
     <template #content>
-      <div class="table-container">
+      <div class="table-container cart-table">
     <div ref="chart" style="width: 100%; height: 400px;"></div>
      </div>
     </template>

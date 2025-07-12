@@ -1,6 +1,14 @@
 <template>
+  <div>
+    <div class="footer-msg text-center" v-if="saleData?.length > 0 && (saleData[0].different_amount || 0) > 0">
+      Great Job! Keep it up!
+    </div>
+    <div class="footer-msg text-center" v-else>
+      Call more customers!
+    </div>
 
-  <Card class="cs-m-top-2">
+    </div>
+  <Card class="cs-m-top-2 card-title-cs">
     <template #content>
       <div class="cs-flex col-down">
         <div>
@@ -140,7 +148,7 @@
           </Card>
         </div>
       </div>
-      <div class="footer-msg text-center"> Great Job! Keep it up! Call more customers! </div>
+
     </template>
   </Card>
 </template>

@@ -4,7 +4,7 @@
       Sales by Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table">
+      <div class="table-container product-bg-table cart-table">
         <div ref="chart" style="height: 300px;"></div>
       </div>
     </template>
