@@ -1,6 +1,6 @@
 <template>
-  <Card class="cs-w-100 bg-visit-table" >
-    <template #title>Client's    Payment</template>
+  <Card class="cs-w-100 bg-visit-table Client_Payment"  style="margin-top:10px;">
+    <template #title>Client's Payment</template>
         <template #content>
     <DataTable
     :value="result"
@@ -44,7 +44,6 @@ defineExpose({
     <style scoped>
 .table-container{
   background-color: rgb(250, 250, 250); 
-  padding:15px;
   border-radius: 20px;
 }
 </style>

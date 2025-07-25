@@ -1,5 +1,5 @@
 <template>
-    <Card class="cs-w-100 card-style bg-visit-table" style="margin-top:10; margin-right: 10px;" >
+    <Card class="cs-w-100 card-style bg-visit-table follow-up-table" style="margin-top:10; margin-right: 15px;" >
       <template #title> Follow Up </template>
           <template #content class="style-card">
       <DataTable
@@ -40,7 +40,6 @@
       <style scoped>
   .table-container{
     background-color: rgb(250, 250, 250); 
-    padding:15px;
     border-radius: 20px;
   }
   </style>

@@ -1,11 +1,11 @@
 <template>
-        <Card class="cs-w-100 bg-visit-table">
+        <Card class="cs-w-100 bg-visit-table bg-visit-table-10">
   <template #title>Performance Overview</template>
   <template #content>
     <DataTable :value="result" showGridlines stripedRows class="datatable-class">
       
       <!-- Empty Label Column -->
-      <Column header="">
+      <Column header="Period">
         <template #body="slotProps">
           {{ slotProps.data.val_name }}
         </template>
@@ -98,7 +98,6 @@ defineExpose({
     <style scoped>
 .table-container{
   background-color: rgb(250, 250, 250); 
-  padding:15px;
   border-radius: 20px;
 }
 </style>

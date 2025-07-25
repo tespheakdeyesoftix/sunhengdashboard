@@ -56,9 +56,23 @@ html{
   }
 }
 .table-container{
-  background-color: rgb(250, 250, 250);
-  padding:15px;
-  border-radius: 20px;
+    background-color: rgb(250, 250, 250);
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 20px;
+}
+.p-card-title{
+      padding: 5px !important;
+      color: white;
+}
+.p-card-title span {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.p-card-title{
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.mt-5{
+  margin-top: 10px !important;
 }
 .section-header { 
 background-color: rgb(255, 255, 255);
@@ -93,8 +107,6 @@ background-color: rgb(255, 255, 255);
 
 .cs-col-6 {
   flex: 0 0 50%; 
-  padding-right: 5px;
-  padding-left: 5px;
 }
 .cs-col-8 {
   flex: 0 0 66.6667%; /* 8 / 12 = 66.6667% */
@@ -202,9 +214,35 @@ padding: 5px !important;
 .bg-sale-product-table .p-card-title{
   background-color: #01b0f0;
 }
-
+.great-job{
+  background-color:green ;
+  color: white !important;
+}
+.call-more{
+    background-color:red ;
+  color: white !important;
+}
+.bg-visit-content  .p-card-caption{
+  background-color: #01b0f0 !important;
+  margin-top: 5px;
+}
 .bg-sale-product-table tr:nth-child(odd) {
   background-color: #c9edfb !important;
+}
+.bg-sale-product-table  th{
+  width: 25%;
+}
+.bg-visit-table-10 th{
+width: 10%;
+}
+.follow-up-table th{
+  width: 33.33%;
+}
+.Tracking_Channel th{
+  width: 16.66%;
+}
+.Client_Payment th{
+   width: 20%;
 }
 .product-bg-table .p-card-title{
 
@@ -213,10 +251,31 @@ padding: 5px !important;
 .header-title{
   padding-left: 6px;
 }
-.p-card-title{
+.p-card-title {
   font-size: 13px !important;
   text-align: center;
   border-radius: 2px;
+}
+.product-bg .p-card-caption{
+  background-color: #5277e7;
+  font-size: 13px !important;
+    text-align: center;
+    border-radius: 2px;
+  
+}
+.table-content .p-card-caption{
+  background-color: #01b0f0;
+  font-size: 13px !important;
+    text-align: center;
+    border-radius: 2px;
+  
+}
+.table-content .p-card-caption span{
+
+font-weight: bold;
+}
+.title{
+  background-color: #5277e7;
 }
 .cart-table{
       border: 1px solid;
@@ -227,6 +286,9 @@ padding: 5px !important;
 }
 .product-bg-table tr:nth-child(odd) {
   background-color: #dde3f6 !important;
+}
+.product-bg-table th{
+  width: 20% ;
 }
 .bg-visit-table tr:nth-child(odd) {
   background-color: #e6eaf8 !important;
@@ -244,14 +306,17 @@ padding: 5px !important;
   margin-bottom: 10px;
 }
 .sale-bg{
-  border:2px solid #90d7ed;
-    padding: 5px;
+    border: 1px solid #90d7ed;
+    padding: 10px;
     border-radius: 10px;
     height: 100%;
 }
 .bg-sale-product{
-   border:2px solid #a58df4;
-    padding: 5px;
+   border:1px solid #a58df4;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    padding-top: 5px !important;
+    padding-bottom: 10px !important;
     border-radius: 10px;
 }
 .sale-bg .p-card{
@@ -270,11 +335,15 @@ padding: 5px !important;
   border:2px solid #b1c5e5;
   border-radius: 10px;
   margin-left: 5px;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
 }
 .card-style .p-card-body{
   padding-right: 0 !important;
 }
-
+.p-card{
+  box-shadow: none !important;
+}
 .col-down{
   flex-direction: column;
 }

@@ -2,10 +2,18 @@
        <div class="header-title bg-red-100">
 <div >
     <h2 style="font-weight: bold;">
-        DASHBOARD SALE 
+        SMART DASHBOARD - {{ currentMonthYear }}
         </h2>
     
 </div>
+  <div class="clock-box">
+    <div class="time">
+      {{ liveTime }}
+    </div>
+    <div class="date">
+      {{ day }}, {{ month }} <span class="green">{{ date }}</span> {{ year }}
+    </div>
+  </div>
 <div>
     <div class="header-select">
         <MultiSelect
@@ -21,7 +29,9 @@
     @change="onOutletChange"
   />
 
-  <Button @click="onRfresh" aria-label="Save"> &#x21bb; </Button>
+  <Button @click="onRfresh" class="refresh" :style="{ backgroundImage: `url(${refreshIcon})` }" aria-label="Save"> 
+</Button>
+
     </div>
   </div>
         </div>
@@ -92,6 +102,51 @@ import ComFollowUpTable from './component/comFollowUpTable.vue';
 const outlets = ref()
 const selectedOutlets = ref([]);
 const { error, loading, request } = useApi();
+import refreshIcon from '@/assets/Refresh.png'
+const currentMonthYear = ref('')
+const liveTime = ref('')
+const ampm = ref('')
+const day = ref('')
+const date = ref('')
+const month = ref('')
+const year = ref('')
+
+function updateClock() {
+  const now = new Date()
+
+  // Time
+  const hrs = now.getHours()
+  const mins = String(now.getMinutes()).padStart(2, '0')
+  const secs = String(now.getSeconds()).padStart(2, '0')
+  ampm.value = hrs >= 12 ? 'PM' : 'AM'
+  const hours12 = String(hrs % 12 || 12).padStart(2, '0')
+  liveTime.value = `${hours12}:${mins}:${secs}`
+
+  // Date
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+  day.value = days[now.getDay()]
+  month.value = months[now.getMonth()]
+  date.value = String(now.getDate()).padStart(2, '0')
+  year.value = now.getFullYear()
+}
+function updateDate() {
+  const now = new Date()
+  const month = now.toLocaleString('default', { month: 'long' }) // e.g., "Jul"
+  const year = now.getFullYear()
+  currentMonthYear.value = `${month} ${year}`
+}
+
+function updateTime() {
+  const now = new Date()
+  const hours = now.getHours() % 12 || 12
+  const minutes = String(now.getMinutes()).padStart(2, '0')
+  const seconds = String(now.getSeconds()).padStart(2, '0')
+  const ampm = now.getHours() >= 12 ? 'PM' : 'AM'
+  liveTime.value = `${hours}:${minutes}:${seconds} ${ampm}`
+}
+
 
 onMounted(async () => {
     const localSelectedOutlet = localStorage.getItem('selectedOutlet');  
@@ -105,6 +160,10 @@ selectedOutlets.value = localSelectedOutlet
 
 
     }
+      updateDate()
+      updateClock()
+  updateTime()
+  setInterval(updateTime, 1000)
 })
 const ChartSale = ref(null)
 const SaleTable = ref(null)
@@ -145,3 +204,41 @@ function onOutletChange(event) {
 
 
 </script>
+<style scoped>
+.clock-box {
+  display: inline-block;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  line-height: 17px;
+  font-family:"alarm clock";
+}
+
+.time {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+}
+
+.ampm {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.date {
+  font-size: 14px;
+  color: gray;
+  margin-top: 4px;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
+.refresh{
+       background-position: center;
+    background-size: 60px; 
+    background-color: none !important;
+    border-color: gray;
+}
+</style>

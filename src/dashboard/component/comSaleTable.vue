@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="footer-msg text-center" v-if="saleData?.length > 0 && (saleData[0].different_amount || 0) > 0">
+    <div class="footer-msg great-job text-center" v-if="saleData?.length > 0 && (saleData[0].different_amount || 0) > 0">
       Great Job! Keep it up!
     </div>
-    <div class="footer-msg text-center" v-else>
+    <div class="footer-msg call-more text-center" v-else>
       Call more customers!
     </div>
 
@@ -17,7 +17,7 @@
             <template #content>
 
               <DataTable stripedRows showGridlines :value="saleData" class="datatable-class">
-                <Column header="">
+                <Column header="Period">
                   <template #body="slotProps">
                     {{ slotProps.data.val_name }}
                   </template>
@@ -59,7 +59,7 @@
               <DataTable stripedRows showGridlines :value="cogsData" class="datatable-class">
 
                 <!-- Label Column -->
-                <Column header="">
+                <Column header="Period">
                   <template #body="slotProps">
                     {{ slotProps.data.val_name }}
                   </template>
@@ -106,7 +106,7 @@
             <template #content>
               <DataTable stripedRows showGridlines :value="profitData" class="datatable-class">
                 <!-- Label Column -->
-                <Column header="">
+                <Column header="Period">
                   <template #body="slotProps">
                     <span>{{ slotProps.data.val_name }}</span>
                   </template>

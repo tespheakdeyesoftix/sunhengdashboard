@@ -8,7 +8,7 @@
       <template #title>Sales By Product</template>
       <template #content>
         <DataTable :value="saleData" stripedRows showGridlines class="datatable-class">
-          <Column header="">
+          <Column header="Period">
             <template #body="slotProps">
               {{ slotProps.data.val_name }}
             </template>
@@ -53,12 +53,12 @@
     </Card>
       </div>
       <div class="cs-col-6 cs-m-top-2">
-        <Card  class="product-bg-table">
+        <Card  class="product-bg-table mt-5">
       <template #title>Inventory Stock</template>
       <template #content>
         <DataTable :value="stockData" stripedRows showGridlines class="datatable-class">
           <!-- Row Label -->
-          <Column header="">
+          <Column header="Period">
             <template #body="slotProps">
               {{ slotProps.data.val_name }}
             </template>
@@ -144,7 +144,6 @@ defineExpose({
     <style scoped>
 .table-container{
   background-color: rgb(250, 250, 250); 
-  padding:15px;
   border-radius: 20px;
 }
 </style>

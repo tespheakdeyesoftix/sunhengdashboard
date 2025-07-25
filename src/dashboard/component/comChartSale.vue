@@ -1,14 +1,14 @@
 <template>
   
-  <Card >
-    <template #title>
-      <span class="title">
+  <Card class="table-content" >
+    <template  #title>
+      <span >
         Actual vs Estimated Sales
       </span>
       </template>
     <template #content>
-      <div class="table-container cart-table">
-    <div ref="chart" style="width: 100%; height: 400px;"></div>
+      <div class="table-container cart-table" style="height:480px;">
+    <div ref="chart" style="width: 100%; height:480px;"></div>
      </div>
     </template>
   </Card>
@@ -44,18 +44,13 @@ const initChart = () => {
     },
     legend: {
       data: ['Actual Sale', 'Estimate Sale'],
-      top: 30
     },
     xAxis: {
       type: 'category',
       data: result.value.map(item => {
   const date = new Date(item.cal_date);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: '2-digit'
-  });
+  return date.getDate();
 }),
-
       boundaryGap: false
     },
     yAxis: {
@@ -88,3 +83,8 @@ defineExpose({
   loadData
 })
 </script>
+<style scoped>
+.p-card-caption{
+  background-color: red;
+}
+</style>

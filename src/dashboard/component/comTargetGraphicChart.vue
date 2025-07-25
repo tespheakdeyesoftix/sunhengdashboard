@@ -1,19 +1,22 @@
 <template>
-  <Card class="product-bg">
-     <template #title>
-Sales by Number Of Products      </template>
-     <template #content>
-  <div class="table-container product-bg-table cart-table">
-    <div ref="chart" style="height: 300px;"></div>
-  </div>
+  <Card class="product-bg mt-5">
+    <template #title>
+      Sales by Number of Products
+    </template>
+    <template #content>
+      <div class="table-container product-bg-table cart-table" style="height: 325px;">
+        <div ref="chart" style="height: 325px;"></div>
+      </div>
+    </template>
+  </Card>
 </template>
-</Card>
-</template>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
 import { useApi } from '../../composables/useAPI';
 import Card from 'primevue/card';
+
 const result = ref(null);
 const { error, loading, request } = useApi();
 
@@ -24,49 +27,71 @@ const loadData = async () => {
 };
 
 const chart = ref(null);
+
 const setChart = () => {
   const data = result.value;
 
-  const months = data.map(item => `${item.month}-${item.year}`);
+  // Extract data
+  const dates = data.map(item => {
+    const day = item.sale_date.split('-')[2]; // Extract day from '2025-07-DD'
+    return parseInt(day, 10).toString(); // Remove leading zero
+  });
   const frameQty = data.map(item => item.frame_qty);
   const lenQty = data.map(item => item.len_qty);
   const glassesQty = data.map(item => item.glasses_qty);
   const otherQty = data.map(item => item.other_qty);
 
+  // Chart option setup
   const option = {
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      formatter: function (params) {
+        let result = `Day ${params[0].name}<br/>`;
+        params.forEach(item => {
+          result += `${item.seriesName}: ${item.value}<br/>`;
+        });
+        return result;
+      }
     },
     legend: {
-      data: ['Frame Qty', 'Len Qty', 'Glasses Qty', 'Other Qty']
+      data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty']
     },
     xAxis: {
       type: 'category',
-      data: months
+      data: dates
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      name: 'Quantity'
     },
     series: [
       {
         name: 'Frame Qty',
         type: 'line',
-        data: frameQty
+        data: frameQty,
+        smooth: true,
+        lineStyle: { color: '#5470C6' }
       },
       {
-        name: 'Len Qty',
+        name: 'Lens Qty',
         type: 'line',
-        data: lenQty
+        data: lenQty,
+        smooth: true,
+        lineStyle: { color: '#91CC75' }
       },
       {
         name: 'Glasses Qty',
         type: 'line',
-        data: glassesQty
+        data: glassesQty,
+        smooth: true,
+        lineStyle: { color: '#FAC858' }
       },
       {
         name: 'Other Qty',
         type: 'line',
-        data: otherQty
+        data: otherQty,
+        smooth: true,
+        lineStyle: { color: '#EE6666' }
       }
     ]
   };
@@ -81,14 +106,14 @@ onMounted(async () => {
   await loadData();
   setChart();
 });
+
 defineExpose({
   loadData
-})
+});
 </script>
 
-      <style scoped>
-  .table-container{
-    padding:15px;
-    border-radius: 20px;
-  }
-  </style>
+<style scoped>
+.table-container {
+  border-radius: 20px;
+}
+</style>

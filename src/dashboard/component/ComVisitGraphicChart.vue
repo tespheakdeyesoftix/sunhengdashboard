@@ -1,19 +1,20 @@
 <template>
-<Card >
-     <template #title>Visit</template>
-     <template #content>
-    <div class="table-container bg-visit-table cart-table">
-        <div ref="chart" style="height: 400px;"></div>
-    </div>
+  <Card class="bg-visit-content">
+    <template #title>Visit</template>
+    <template #content>
+      <div class="table-container bg-visit-table cart-table" style="height: 480px;">
+        <div ref="chart" style="height: 480px;"></div>
+      </div>
     </template>
- 
-</Card>
- </template>
+  </Card>
+</template>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
 import { useApi } from '../../composables/useAPI';
 import Card from 'primevue/card';
+
 const result = ref(null);
 const { error, loading, request } = useApi();
 
@@ -29,52 +30,73 @@ const chart = ref(null);
 const setChart = () => {
   const data = result.value;
 
-  const months = data.map(item => `${item.month}-${item.year}`);
+  // Extract data
+  const dates = data.map(item => {
+    const day = item.transaction_date.split('-')[2]; // Extract day from '2025-07-DD'
+    return parseInt(day, 10).toString(); // Remove leading zero
+  });
   const visits = data.map(item => item.visits);
   const exams = data.map(item => item.exams);
   const solds = data.map(item => item.solds);
   const targetSales = data.map(item => item.target_sales);
-  const different = data.map(item => item.different);
 
   const option = {
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      formatter: function (params) {
+        let result = `Day ${params[0].name}<br/>`;
+        params.forEach(item => {
+          result += `${item.seriesName}: ${item.value}<br/>`;
+        });
+        return result;
+      }
     },
     legend: {
-      data: ['Visits', 'Exams','Solds Exams', 'Solds', 'Target']
+      data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target']
     },
     xAxis: {
       type: 'category',
-      data: months
+      data: dates
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      name: 'Count'
     },
     series: [
       {
         name: 'Visits',
         type: 'line',
-        data: visits
+        data: visits,
+        smooth: true,
+        lineStyle: { color: '#5470C6' }
       },
       {
         name: 'Exams',
         type: 'line',
-        data: exams
+        data: exams,
+        smooth: true,
+        lineStyle: { color: '#91CC75' }
       },
       {
         name: 'Solds Exams',
         type: 'line',
-        data: exams
+        data: exams, // Reusing exams as per original code
+        smooth: true,
+        lineStyle: { color: '#FAC858' }
       },
       {
         name: 'Solds',
         type: 'line',
-        data: solds
+        data: solds,
+        smooth: true,
+        lineStyle: { color: '#EE6666' }
       },
       {
         name: 'Target',
         type: 'line',
-        data: targetSales
+        data: targetSales,
+        smooth: true,
+        lineStyle: { color: '#73C0DE' }
       }
     ]
   };
@@ -89,16 +111,15 @@ onMounted(async () => {
   await loadData();
   setChart();
 });
+
 defineExpose({
   loadData
-})
+});
 </script>
 
-  
-        <style scoped>
-    .table-container{
-      background-color: rgb(250, 250, 250); 
-      padding:15px;
-      border-radius: 20px;
-    }
-    </style>
+<style scoped>
+.table-container {
+  background-color: rgb(250, 250, 250);
+  border-radius: 20px;
+}
+</style>
