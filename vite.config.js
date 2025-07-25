@@ -6,10 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  server:{
-host:"192.168.10.146",
-port:5174
-  },
+  base: '/smart-dashboard/', 
   plugins: [
     vue(),
     vueDevTools(),

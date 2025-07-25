@@ -60,7 +60,7 @@
        </card>
         <card>     
             <template #content>     
-        <div class="cs-flex cs-w-100"> 
+        <div class="cs-flex cs-w-100" style="margin-bottom: 200px;"> 
                         <div class="cs-col-4 cs-w-100" style="margin-left: 0; padding: 0;margin-right:5px;">
                            <ComFollowUpTable ref="FollowUpTable" />
                         </div>
@@ -110,6 +110,9 @@ const day = ref('')
 const date = ref('')
 const month = ref('')
 const year = ref('')
+  import { useRoute } from 'vue-router';
+const route = useRoute();
+const iframeHeight = ref("1080px")
 
 function updateClock() {
   const now = new Date()
@@ -163,8 +166,23 @@ selectedOutlets.value = localSelectedOutlet
       updateDate()
       updateClock()
   updateTime()
+
+ 
+
+
+  setTimeout(() => {
+    iframeHeight.value =route.query.h || "120vh";  
+    
+    const body = document.querySelector("body")
+    body.style.height = iframeHeight.value;
+ 
+
+  }, 2000);
+
+
   setInterval(updateTime, 1000)
 })
+
 const ChartSale = ref(null)
 const SaleTable = ref(null)
 const ProductTable = ref(null)
