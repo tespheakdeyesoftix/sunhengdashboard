@@ -1,39 +1,24 @@
-// import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url'
 
-// import { defineConfig } from 'vite'
-// import vue from '@vitejs/plugin-vue'
-// import vueDevTools from 'vite-plugin-vue-devtools'
-
-// // https://vite.dev/config/
-// export default defineConfig({
-//   base: '/smart-dashboard/', 
-//   plugins: [
-//     vue(),
-//     vueDevTools(),
-//   ],
-//   resolve: {
-//     alias: {
-//       '@': fileURLToPath(new URL('./src', import.meta.url))
-//     },
-//   },
-// })
-// vite.config.js
-// vite.config.js
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import vueDevTools from 'vite-plugin-vue-devtools'
 
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  base: '/smart-dashboard/', 
+  plugins: [
+    vue(),
+    vueDevTools(),
+  ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  server: {
-    host: '0.0.0.0',
-    port: 5174,
-  },
 })
+vite.config.js
+vite.config.js
+
 
 
