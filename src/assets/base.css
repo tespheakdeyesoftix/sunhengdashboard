@@ -91,5 +91,36 @@ body {
   border-color: gray !important;
 }
 body {
-width: 100vw;
+overflow: hidden;
 }
+@media (min-width: 1350px) and (max-width: 1500px) {
+  body {
+    zoom: 0.8;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1350px) {
+  body {
+    zoom: 0.6;
+  }
+}
+@media (min-width: 1050px) and (max-width: 1200px) {
+  body {
+    zoom: 0.6;
+  }
+}
+@media (max-width: 1050px) {
+body {
+zoom: 0.6;
+}
+}
+@media (min-width: 1500px) {
+body {
+zoom: 0.7;
+}
+}
+.p-multiselect-overlay{
+      right: 72px !important;
+    inset-inline-start: unset !important;
+    margin-top: 7px !important;
+}
+

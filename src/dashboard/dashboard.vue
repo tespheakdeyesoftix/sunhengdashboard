@@ -1,9 +1,9 @@
 <template>
        <div class="header-title bg-red-100">
 <div >
-    <h2 style="font-weight: bold;">
+    <h4 style="font-weight: bold;">
         SMART DASHBOARD - {{ currentMonthYear }}
-        </h2>
+    </h4>
     
 </div>
   <div class="clock-box">
@@ -29,7 +29,7 @@
     @change="onOutletChange"
   />
 
-  <Button @click="onRfresh" class="refresh" :style="{ backgroundImage: `url(${refreshIcon})` }" aria-label="Save"> 
+  <Button @click="onRfreshBT" class="refresh" :style="{ backgroundImage: `url(${refreshIcon})` }" aria-label="Save"> 
 </Button>
 
     </div>
@@ -60,7 +60,7 @@
        </card>
         <card>     
             <template #content>     
-        <div class="cs-flex cs-w-100" style="margin-bottom: 200px;"> 
+        <div class="cs-flex cs-w-100"> 
                         <div class="cs-col-4 cs-w-100" style="margin-left: 0; padding: 0;margin-right:5px;">
                            <ComFollowUpTable ref="FollowUpTable" />
                         </div>
@@ -204,6 +204,9 @@ function onRfresh(){
     TrackingChannel.value?.loadData()
     ClientPaymentTable.value?.loadData()
     FollowUpTable.value?.loadData()
+}
+function onRfreshBT(){
+   window.location.reload();
 }
 const isInvalid = computed(() => selectedOutlets.value.length === 0);
 function onOutletChange(event) {
