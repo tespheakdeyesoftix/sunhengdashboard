@@ -30,19 +30,25 @@ const chart = ref(null);
 
 const setChart = () => {
   const data = result.value;
+  if (!data || !data.length) return;
 
   // Extract data
   const dates = data.map(item => {
-    const day = item.sale_date.split('-')[2]; // Extract day from '2025-07-DD'
+    const day = item.sale_date.split('-')[2]; // Extract day from 'YYYY-MM-DD'
     return parseInt(day, 10).toString(); // Remove leading zero
   });
+
   const frameQty = data.map(item => item.frame_qty);
   const lenQty = data.map(item => item.len_qty);
   const glassesQty = data.map(item => item.glasses_qty);
   const otherQty = data.map(item => item.other_qty);
 
-  // Chart option setup
   const option = {
+    textStyle: {
+      fontSize: 18,
+      fontFamily: 'Arial, sans-serif',
+      color: '#000'
+    },
     tooltip: {
       trigger: 'axis',
       formatter: function (params) {
@@ -51,18 +57,34 @@ const setChart = () => {
           result += `${item.seriesName}: ${item.value}<br/>`;
         });
         return result;
+      },
+      textStyle: {
+        fontSize: 18
       }
     },
     legend: {
-      data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty']
+      data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty'],
+      textStyle: {
+        fontSize: 18,
+        color: '#333'
+      }
     },
     xAxis: {
       type: 'category',
-      data: dates
+      data: dates,
+      axisLabel: {
+        fontSize: 18
+      }
     },
     yAxis: {
       type: 'value',
-      name: 'Quantity'
+      name: 'Quantity',
+      nameTextStyle: {
+        fontSize: 18
+      },
+      axisLabel: {
+        fontSize: 18
+      }
     },
     series: [
       {
@@ -70,36 +92,53 @@ const setChart = () => {
         type: 'line',
         data: frameQty,
         smooth: true,
-        lineStyle: { color: '#5470C6' }
+        lineStyle: { color: '#5470C6' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Lens Qty',
         type: 'line',
         data: lenQty,
         smooth: true,
-        lineStyle: { color: '#91CC75' }
+        lineStyle: { color: '#91CC75' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Glasses Qty',
         type: 'line',
         data: glassesQty,
         smooth: true,
-        lineStyle: { color: '#FAC858' }
+        lineStyle: { color: '#FAC858' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Other Qty',
         type: 'line',
         data: otherQty,
         smooth: true,
-        lineStyle: { color: '#EE6666' }
+        lineStyle: { color: '#EE6666' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       }
     ]
   };
 
-  // Initialize the chart
+  // Render the chart
   const myChart = echarts.init(chart.value);
   myChart.setOption(option);
 };
+
 
 // Load data on component mount
 onMounted(async () => {

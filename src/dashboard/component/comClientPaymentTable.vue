@@ -2,19 +2,33 @@
   <Card class="cs-w-100 bg-visit-table Client_Payment"  style="margin-top:10px;">
     <template #title>Client's Payment</template>
         <template #content>
-    <DataTable
-    :value="result"
-    class="datatable-class"
-    responsiveLayout="scroll"
-    stripedRows showGridlines
-    
-  >
-    <Column field="val_name" header="Period" />
-    <Column field="payment_amount" header="Payment Amount" />
-    <Column field="payments" header="Payments" />
-    <Column field="total_amount" header="Total Amount" />
-    <Column field="balance" header="Balance" />
-  </DataTable>         
+  <DataTable
+  :value="result"
+  class="datatable-class"
+  responsiveLayout="scroll"
+  stripedRows
+  showGridlines
+>
+  <Column field="val_name" header="Period" />
+
+  <!-- Change header label -->
+  <Column field="payment_amount" header="P.Amount" />
+
+  <Column field="payments" header="Payments" />
+
+  <!-- Change header label -->
+  <Column field="total_amount" header="T.Amount" />
+
+  <Column field="balance" header="Balance" />
+
+  <!-- Assuming Inventory Stock field is `inventory_stock` -->
+  <Column
+    field="inventory_stock"
+    header="Stock"
+    :body="roundInventoryStock"
+  />
+</DataTable>
+       
         </template>
   
   </Card>

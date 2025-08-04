@@ -123,4 +123,14 @@ zoom: 0.7;
     inset-inline-start: unset !important;
     margin-top: 7px !important;
 }
-
+.p-datatable-gridlines .p-datatable-thead > tr > th{
+  font-size: 18px !important;
+}
+.p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td {
+  font-size: 18px !important;
+}
+.footer-msg{
+  padding: 5px;
+  font-size: 18px !important;
+  font-weight: bold;
+}

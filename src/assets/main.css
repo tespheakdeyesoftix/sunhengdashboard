@@ -369,3 +369,6 @@ table{
     max-width: 33.3333% !important;
   }
 }
+.p-card-title{
+  font-size: 18px !important;
+}
