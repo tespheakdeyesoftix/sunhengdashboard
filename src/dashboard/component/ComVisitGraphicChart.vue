@@ -2,8 +2,8 @@
   <Card class="bg-visit-content">
     <template #title>Visit</template>
     <template #content>
-      <div class="table-container bg-visit-table cart-table" style="height: 480px;">
-        <div ref="chart" style="height: 480px;"></div>
+      <div class="table-container bg-visit-table cart-table" style="height: 438px;">
+        <div ref="chart" style="height: 438px;"></div>
       </div>
     </template>
   </Card>
@@ -29,11 +29,12 @@ const loadData = async () => {
 const chart = ref(null);
 const setChart = () => {
   const data = result.value;
+  if (!data || !data.length) return;
 
   // Extract data
   const dates = data.map(item => {
-    const day = item.transaction_date.split('-')[2]; // Extract day from '2025-07-DD'
-    return parseInt(day, 10).toString(); // Remove leading zero
+    const day = item.transaction_date.split('-')[2];
+    return parseInt(day, 10).toString();
   });
   const visits = data.map(item => item.visits);
   const exams = data.map(item => item.exams);
@@ -41,6 +42,11 @@ const setChart = () => {
   const targetSales = data.map(item => item.target_sales);
 
   const option = {
+    textStyle: {
+      fontSize: 18,
+      fontFamily: 'Arial, sans-serif',
+      color: '#000'
+    },
     tooltip: {
       trigger: 'axis',
       formatter: function (params) {
@@ -49,18 +55,34 @@ const setChart = () => {
           result += `${item.seriesName}: ${item.value}<br/>`;
         });
         return result;
+      },
+      textStyle: {
+        fontSize: 18
       }
     },
     legend: {
-      data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target']
+      data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
+      textStyle: {
+        fontSize: 18,
+        color: '#333'
+      }
     },
     xAxis: {
       type: 'category',
-      data: dates
+      data: dates,
+      axisLabel: {
+        fontSize: 18
+      }
     },
     yAxis: {
       type: 'value',
-      name: 'Count'
+      name: 'Count',
+      nameTextStyle: {
+        fontSize: 18
+      },
+      axisLabel: {
+        fontSize: 18
+      }
     },
     series: [
       {
@@ -68,43 +90,63 @@ const setChart = () => {
         type: 'line',
         data: visits,
         smooth: true,
-        lineStyle: { color: '#5470C6' }
+        lineStyle: { color: '#5470C6' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Exams',
         type: 'line',
         data: exams,
         smooth: true,
-        lineStyle: { color: '#91CC75' }
+        lineStyle: { color: '#91CC75' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Solds Exams',
         type: 'line',
-        data: exams, // Reusing exams as per original code
+        data: exams,  // Reusing exams data as you did
         smooth: true,
-        lineStyle: { color: '#FAC858' }
+        lineStyle: { color: '#FAC858' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Solds',
         type: 'line',
         data: solds,
         smooth: true,
-        lineStyle: { color: '#EE6666' }
+        lineStyle: { color: '#EE6666' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Target',
         type: 'line',
         data: targetSales,
         smooth: true,
-        lineStyle: { color: '#73C0DE' }
+        lineStyle: { color: '#73C0DE' },
+        label: {
+          show: true,
+          fontSize: 18
+        }
       }
     ]
   };
 
-  // Initialize the chart
   const myChart = echarts.init(chart.value);
   myChart.setOption(option);
 };
+
 
 // Load data on component mount
 onMounted(async () => {

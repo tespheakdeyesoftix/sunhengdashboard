@@ -26,7 +26,7 @@
       </Column>
 
       <!-- Sold Exam -->
-      <Column header="Sold Exam" headerClass="text-center">
+      <Column header="S.Exam" headerClass="text-center">
         <template #body="slotProps">
           {{ slotProps.data.exam_sales }}
         </template>

@@ -7,8 +7,8 @@
       </span>
       </template>
     <template #content>
-      <div class="table-container cart-table" style="height:480px;">
-    <div ref="chart" style="width: 100%; height:480px;"></div>
+      <div class="table-container cart-table" style="height:438px;">
+    <div ref="chart" style="width: 100%; height:438px;"></div>
      </div>
     </template>
   </Card>
@@ -39,42 +39,71 @@ const initChart = () => {
   const myChart = echarts.init(chart.value)
 
   const option = {
+    textStyle: {
+      fontSize: 18 // 🧱 Global default font size
+    },
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      textStyle: {
+        fontSize: 18
+      }
     },
     legend: {
       data: ['Actual Sale', 'Estimate Sale'],
+      textStyle: {
+        fontSize: 18,
+        color: '#333'
+      }
     },
     xAxis: {
       type: 'category',
       data: result.value.map(item => {
-  const date = new Date(item.cal_date);
-  return date.getDate();
-}),
-      boundaryGap: false
+        const date = new Date(item.cal_date);
+        return date.getDate();
+      }),
+      boundaryGap: false,
+      axisLabel: {
+        fontSize: 18
+      }
     },
     yAxis: {
       type: 'value',
-      name: 'Sales'
+      name: 'Sales',
+      nameTextStyle: {
+        fontSize: 18
+      },
+      axisLabel: {
+        fontSize: 18
+      }
     },
     series: [
       {
         name: 'Actual Sale',
         type: 'line',
         data: result.value.map(item => item.actual_sale),
-        smooth: true
+        smooth: true,
+        label: {
+          show: true,
+          fontSize: 18
+        }
       },
       {
         name: 'Estimate Sale',
         type: 'line',
         data: result.value.map(item => item.estimate_sale),
-        smooth: true
+        smooth: true,
+        label: {
+          show: true,
+          fontSize: 18
+        }
       }
     ]
   }
 
   myChart.setOption(option)
 }
+
+
 
 onMounted(async () => {
   await loadData()

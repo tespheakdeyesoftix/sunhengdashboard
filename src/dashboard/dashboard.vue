@@ -1,7 +1,7 @@
 <template>
        <div class="header-title bg-red-100">
 <div >
-    <h4 style="font-weight: bold;">
+    <h4 style="font-weight: bold;font-size: 20px !important;">
         SMART DASHBOARD - {{ currentMonthYear }}
     </h4>
     
