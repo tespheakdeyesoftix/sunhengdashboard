@@ -90,9 +90,6 @@ body {
   background-color: none !important;
   border-color: gray !important;
 }
-body {
-overflow: hidden;
-}
 @media (min-width: 1350px) and (max-width: 1500px) {
   body {
     zoom: 0.8;
