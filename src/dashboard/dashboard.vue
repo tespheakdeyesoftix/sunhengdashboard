@@ -79,11 +79,16 @@
        
     </div>
  
+ <Dialog v-model:visible="showLoading" modal header="Loading..." :style="{ width: '50rem' }" position="top">
+    <span class="text-surface-500 dark:text-surface-400 block mb-8">Refreshing your data.</span>
+     <ProgressBar mode="indeterminate" style="height: 10px"></ProgressBar>
+</Dialog>
+
 </template>
 <script setup>
 
 import MultiSelect from 'primevue/multiselect';
-
+import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
 
 import comSaleTable from '../dashboard/component/comSaleTable.vue'
@@ -113,6 +118,9 @@ const year = ref('')
   import { useRoute } from 'vue-router';
 const route = useRoute();
 const iframeHeight = ref("1080px")
+const showLoading = ref(false)
+
+import ProgressBar from 'primevue/progressbar';
 
 function updateClock() {
   const now = new Date()
@@ -194,6 +202,7 @@ const TrackingChannel = ref(null)
 const ClientPaymentTable = ref(null)
 const FollowUpTable = ref(null)
 function onRfresh(){
+  
     ChartSale.value?.loadData() 
     SaleTable.value?.loadData()
     ProductTable.value?.loadData()
@@ -204,9 +213,24 @@ function onRfresh(){
     TrackingChannel.value?.loadData()
     ClientPaymentTable.value?.loadData()
     FollowUpTable.value?.loadData()
+   
 }
-function onRfreshBT(){
-   window.location.reload();
+async function onRfreshBT(){
+  showLoading.value = true;
+  setTimeout(async () => {
+      await ChartSale.value?.loadData() 
+    await SaleTable.value?.loadData()
+    await ProductTable.value?.loadData()
+    await TargetGraphicChart.value?.loadData()
+    await SaleTargetGraphicChart.value?.loadData()
+    await VisitGraphicChart.value?.loadData()
+    await ClientTable.value?.loadData()
+    await TrackingChannel.value?.loadData()
+    await ClientPaymentTable.value?.loadData()
+    await FollowUpTable.value?.loadData()
+     showLoading.value = false;
+  }, 1000);
+ 
 }
 const isInvalid = computed(() => selectedOutlets.value.length === 0);
 function onOutletChange(event) {
