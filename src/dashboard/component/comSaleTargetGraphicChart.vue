@@ -4,8 +4,8 @@
       Sales by Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table cart-table" style="height: 325px;">
-        <div ref="chart" style="height: 325px;"></div>
+      <div class="table-container product-bg-table cart-table" style="height: 340px;">
+        <div ref="chart" style="width: 100%;height: 110%;"></div>
       </div>
     </template>
   </Card>
@@ -44,101 +44,103 @@ const setChart = () => {
 
   // Chart options
   const option = {
+  tooltip: {
+    trigger: 'axis',
+    formatter: function (params) {
+      let result = `Day ${params[0].name}<br/>`;
+      params.forEach(item => {
+        result += `${item.seriesName}: $${item.value.toFixed(2)}<br/>`;
+      });
+      return result;
+    },
     textStyle: {
       fontSize: 18,
-      fontFamily: 'Arial, sans-serif',
-      color: '#000' // Default font color
+      fontWeight: 'bold',
+      color: '#000'  // Black tooltip text
+    }
+  },
+  legend: {
+    data: ['Frame Amt', 'Lens Amt', 'Glasses Amt', 'Other Amt'],
+    textStyle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#000'  // Black legend text
+    }
+  },
+  xAxis: {
+    type: 'category',
+    data: dates,
+    axisLabel: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#000'  // Black xAxis labels
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'Amount ($)',
+    axisLabel: {
+      formatter: '${value}',
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#000'  // Black yAxis labels
     },
-    tooltip: {
-      trigger: 'axis',
-      formatter: function (params) {
-        let result = `Day ${params[0].name}<br/>`;
-        params.forEach(item => {
-          result += `${item.seriesName}: $${item.value.toFixed(2)}<br/>`;
-        });
-        return result;
-      },
-      textStyle: {
-        fontSize: 18
+    nameTextStyle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#000'  // Black yAxis name
+    }
+  },
+  series: [
+    {
+      name: 'Frame Amt',
+      type: 'line',
+      data: frameAmount,
+      smooth: true,
+      lineStyle: { color: '#5470C6' },
+      label: {
+        show: false
       }
     },
-    legend: {
-      data: ['Frame Amt', 'Lens Amt', 'Glasses Amt', 'Other Amt'],
-      textStyle: {
-        fontSize: 18,
-        color: '#333'
+    {
+      name: 'Lens Amt',
+      type: 'line',
+      data: lenAmount,
+      smooth: true,
+      lineStyle: { color: '#91CC75' },
+      label: {
+        show: false
       }
     },
-    xAxis: {
-      type: 'category',
-      data: dates,
-      axisLabel: {
-        fontSize: 18
+    {
+      name: 'Glasses Amt',
+      type: 'line',
+      data: glassesAmount,
+      smooth: true,
+      lineStyle: { color: '#FAC858' },
+      label: {
+        show: false
       }
     },
-    yAxis: {
-      type: 'value',
-      name: 'Amount ($)',
-      axisLabel: {
-        formatter: '${value}',
-        fontSize: 18
-      },
-      nameTextStyle: {
-        fontSize: 18
+    {
+      name: 'Other Amt',
+      type: 'line',
+      data: otherAmount,
+      smooth: true,
+      lineStyle: { color: '#EE6666' },
+      label: {
+        show: false
       }
-    },
-    series: [
-      {
-        name: 'Frame Amt',
-        type: 'line',
-        data: frameAmount,
-        smooth: true,
-        lineStyle: { color: '#5470C6' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
-      },
-      {
-        name: 'Lens Amt',
-        type: 'line',
-        data: lenAmount,
-        smooth: true,
-        lineStyle: { color: '#91CC75' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
-      },
-      {
-        name: 'Glasses Amt',
-        type: 'line',
-        data: glassesAmount,
-        smooth: true,
-        lineStyle: { color: '#FAC858' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
-      },
-      {
-        name: 'Other Amt',
-        type: 'line',
-        data: otherAmount,
-        smooth: true,
-        lineStyle: { color: '#EE6666' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
-      }
-    ]
-  };
+    }
+  ]
+};
+
 
   // Render chart
   const myChart = echarts.init(chart.value);
   myChart.setOption(option);
 };
+
 
 
 

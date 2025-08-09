@@ -4,8 +4,8 @@
       Sales by Number of Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table cart-table" style="height: 325px;">
-        <div ref="chart" style="height: 325px;"></div>
+      <div class="table-container product-bg-table cart-table" style="height: 340px;">
+        <div ref="chart" style="height: 110%;"></div>
       </div>
     </template>
   </Card>
@@ -47,7 +47,8 @@ const setChart = () => {
     textStyle: {
       fontSize: 18,
       fontFamily: 'Arial, sans-serif',
-      color: '#000'
+      color: '#000',
+      fontWeight: 'bold'
     },
     tooltip: {
       trigger: 'axis',
@@ -59,31 +60,36 @@ const setChart = () => {
         return result;
       },
       textStyle: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold'
       }
     },
     legend: {
       data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty'],
       textStyle: {
         fontSize: 18,
-        color: '#333'
+        color: '#333',
+        fontWeight: 'bold'
       }
     },
     xAxis: {
       type: 'category',
       data: dates,
       axisLabel: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold'
       }
     },
     yAxis: {
       type: 'value',
       name: 'Quantity',
       nameTextStyle: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold'
       },
       axisLabel: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold'
       }
     },
     series: [
@@ -94,8 +100,7 @@ const setChart = () => {
         smooth: true,
         lineStyle: { color: '#5470C6' },
         label: {
-          show: true,
-          fontSize: 18
+          show: false
         }
       },
       {
@@ -105,8 +110,7 @@ const setChart = () => {
         smooth: true,
         lineStyle: { color: '#91CC75' },
         label: {
-          show: true,
-          fontSize: 18
+          show: false
         }
       },
       {
@@ -116,8 +120,7 @@ const setChart = () => {
         smooth: true,
         lineStyle: { color: '#FAC858' },
         label: {
-          show: true,
-          fontSize: 18
+          show: false
         }
       },
       {
@@ -127,8 +130,7 @@ const setChart = () => {
         smooth: true,
         lineStyle: { color: '#EE6666' },
         label: {
-          show: true,
-          fontSize: 18
+          show: false
         }
       }
     ]
@@ -138,6 +140,7 @@ const setChart = () => {
   const myChart = echarts.init(chart.value);
   myChart.setOption(option);
 };
+
 
 
 // Load data on component mount

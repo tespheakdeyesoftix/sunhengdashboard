@@ -3,7 +3,7 @@
     <template #title>Visit</template>
     <template #content>
       <div class="table-container bg-visit-table cart-table" style="height: 438px;">
-        <div ref="chart" style="height: 438px;"></div>
+        <div ref="chart" style="height: 110%;"></div>
       </div>
     </template>
   </Card>
@@ -45,7 +45,8 @@ const setChart = () => {
     textStyle: {
       fontSize: 18,
       fontFamily: 'Arial, sans-serif',
-      color: '#000'
+      color: '#000',
+      fontWeight: 'bold'
     },
     tooltip: {
       trigger: 'axis',
@@ -57,31 +58,40 @@ const setChart = () => {
         return result;
       },
       textStyle: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'
       }
     },
     legend: {
       data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
       textStyle: {
         fontSize: 18,
-        color: '#333'
+        color: '#000',
+        fontWeight: 'bold'
       }
     },
     xAxis: {
       type: 'category',
       data: dates,
       axisLabel: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'
       }
     },
     yAxis: {
       type: 'value',
       name: 'Count',
       nameTextStyle: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'
       },
       axisLabel: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'
       }
     },
     series: [
@@ -91,10 +101,7 @@ const setChart = () => {
         data: visits,
         smooth: true,
         lineStyle: { color: '#5470C6' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
+        label: { show: false }
       },
       {
         name: 'Exams',
@@ -102,21 +109,15 @@ const setChart = () => {
         data: exams,
         smooth: true,
         lineStyle: { color: '#91CC75' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
+        label: { show: false }
       },
       {
         name: 'Solds Exams',
         type: 'line',
-        data: exams,  // Reusing exams data as you did
+        data: exams,  // Reusing exams data
         smooth: true,
         lineStyle: { color: '#FAC858' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
+        label: { show: false }
       },
       {
         name: 'Solds',
@@ -124,10 +125,7 @@ const setChart = () => {
         data: solds,
         smooth: true,
         lineStyle: { color: '#EE6666' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
+        label: { show: false }
       },
       {
         name: 'Target',
@@ -135,10 +133,7 @@ const setChart = () => {
         data: targetSales,
         smooth: true,
         lineStyle: { color: '#73C0DE' },
-        label: {
-          show: true,
-          fontSize: 18
-        }
+        label: { show: false }
       }
     ]
   };
@@ -146,6 +141,8 @@ const setChart = () => {
   const myChart = echarts.init(chart.value);
   myChart.setOption(option);
 };
+
+
 
 
 // Load data on component mount

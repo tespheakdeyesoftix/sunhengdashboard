@@ -8,7 +8,7 @@
       </template>
     <template #content>
       <div class="table-container cart-table" style="height:438px;">
-    <div ref="chart" style="width: 100%; height:438px;"></div>
+    <div ref="chart" style="width: 100%; height:110%;"></div>
      </div>
     </template>
   </Card>
@@ -34,25 +34,30 @@ const loadData = async () => {
 }
 
 const initChart = () => {
-  if (!chart.value || !result.value?.length) return
+  if (!chart.value || !result.value?.length) return;
 
-  const myChart = echarts.init(chart.value)
+  const myChart = echarts.init(chart.value);
 
   const option = {
     textStyle: {
-      fontSize: 18 // 🧱 Global default font size
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#000'  // Black global text
     },
     tooltip: {
       trigger: 'axis',
       textStyle: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'  // Black tooltip text
       }
     },
     legend: {
       data: ['Actual Sale', 'Estimate Sale'],
       textStyle: {
         fontSize: 18,
-        color: '#333'
+        fontWeight: 'bold',
+        color: '#000'  // Black legend text
       }
     },
     xAxis: {
@@ -63,17 +68,23 @@ const initChart = () => {
       }),
       boundaryGap: false,
       axisLabel: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'  // Black xAxis labels
       }
     },
     yAxis: {
       type: 'value',
       name: 'Sales',
       nameTextStyle: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'  // Black yAxis name
       },
       axisLabel: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#000'  // Black yAxis labels
       }
     },
     series: [
@@ -83,8 +94,7 @@ const initChart = () => {
         data: result.value.map(item => item.actual_sale),
         smooth: true,
         label: {
-          show: true,
-          fontSize: 18
+          show: false  // Hide values on lines
         }
       },
       {
@@ -93,15 +103,16 @@ const initChart = () => {
         data: result.value.map(item => item.estimate_sale),
         smooth: true,
         label: {
-          show: true,
-          fontSize: 18
+          show: false  // Hide values on lines
         }
       }
     ]
-  }
+  };
 
-  myChart.setOption(option)
-}
+  myChart.setOption(option);
+};
+
+
 
 
 
