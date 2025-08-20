@@ -2,8 +2,8 @@
   <Card class="bg-visit-content">
     <template #title>Visit</template>
     <template #content>
-      <div class="table-container bg-visit-table cart-table" style="height: 438px;">
-        <div ref="chart" style="height: 110%;"></div>
+      <div class="table-container bg-visit-table cart-table" style="height: 308px;">
+        <div ref="chart" style="height: 318px;"></div>
       </div>
     </template>
   </Card>
@@ -43,7 +43,7 @@ const setChart = () => {
 
   const option = {
     textStyle: {
-      fontSize: 13,
+      fontSize: 10,
       fontFamily: 'Arial, sans-serif',
       color: '#000',
       fontWeight: 'bold'
@@ -58,7 +58,7 @@ const setChart = () => {
         return result;
       },
       textStyle: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'
       }
@@ -66,7 +66,7 @@ const setChart = () => {
     legend: {
       data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
       textStyle: {
-        fontSize: 13,
+        fontSize: 10,
         color: '#000',
         fontWeight: 'bold'
       }
@@ -75,7 +75,7 @@ const setChart = () => {
       type: 'category',
       data: dates,
       axisLabel: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'
       }
@@ -84,12 +84,12 @@ const setChart = () => {
       type: 'value',
       name: 'Count',
       nameTextStyle: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'
       },
       axisLabel: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'
       }

@@ -7,8 +7,8 @@
       </span>
       </template>
     <template #content>
-      <div class="table-container cart-table" style="height:435px;">
-    <div ref="chart" style="width: 100%; height:110%;"></div>
+      <div class="table-container cart-table" style="height:308px;">
+    <div ref="chart" style="height:318px;"></div>
      </div>
     </template>
   </Card>
@@ -40,14 +40,14 @@ const initChart = () => {
 
   const option = {
     textStyle: {
-      fontSize: 13,
+      fontSize: 10,
       fontWeight: 'bold',
       color: '#000'  // Black global text
     },
     tooltip: {
       trigger: 'axis',
       textStyle: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'  // Black tooltip text
       }
@@ -55,7 +55,7 @@ const initChart = () => {
     legend: {
       data: ['Actual Sale', 'Estimate Sale'],
       textStyle: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'  // Black legend text
       }
@@ -68,7 +68,7 @@ const initChart = () => {
       }),
       boundaryGap: false,
       axisLabel: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'  // Black xAxis labels
       }
@@ -77,12 +77,12 @@ const initChart = () => {
       type: 'value',
       name: 'Sales',
       nameTextStyle: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'  // Black yAxis name
       },
       axisLabel: {
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: 'bold',
         color: '#000'  // Black yAxis labels
       }

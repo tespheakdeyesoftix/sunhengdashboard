@@ -96,10 +96,10 @@ body {
     margin-top: 7px !important;
 }
 .p-datatable-gridlines .p-datatable-thead > tr > th{
-  font-size: 13px !important;
+  font-size: 10px !important;
 }
 .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td {
-  font-size: 13px !important;
+  font-size: 10px !important;
   font-weight: bold !important;
 }
 .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td span{
@@ -107,6 +107,6 @@ body {
 }
 .footer-msg{
   padding: 5px;
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: bold;
 }

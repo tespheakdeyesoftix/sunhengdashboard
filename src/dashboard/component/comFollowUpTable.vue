@@ -6,7 +6,12 @@
       :value="result"
       class="datatable-class cs-w-100" sresponsiveLayout="scroll"
       stripedRows showGridlines >
-      <Column field="val_name" header="Period" />
+      <Column header="Period">
+  <template #body="slotProps">
+    {{ slotProps.data.val_name === 'This Week' ? 'Week' : slotProps.data.val_name }}
+  </template>
+</Column>
+
       <Column field="follow_ups" header="FU" />
       <Column field="appointments" header="AP" />
       

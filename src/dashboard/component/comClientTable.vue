@@ -7,7 +7,7 @@
       <!-- Empty Label Column -->
       <Column header="Period">
         <template #body="slotProps">
-          {{ slotProps.data.val_name }}
+         {{ slotProps.data.val_name == 'This Week' ? 'Week' : slotProps.data.val_name }}
         </template>
       </Column>
 

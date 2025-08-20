@@ -9,7 +9,11 @@
   stripedRows
   showGridlines
 >
-  <Column field="val_name" header="Period" />
+ <Column header="Period">
+  <template #body="slotProps">
+    {{ slotProps.data.val_name === 'This Week' ? 'Week' : slotProps.data.val_name }}
+  </template>
+</Column>
 
   <!-- Change header label -->
   <Column field="payment_amount" header="P.Amount" />

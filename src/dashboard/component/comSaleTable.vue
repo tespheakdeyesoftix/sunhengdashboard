@@ -19,7 +19,10 @@
               <DataTable stripedRows showGridlines :value="saleData" class="datatable-class">
                 <Column header="Period">
                   <template #body="slotProps">
-                    {{ slotProps.data.val_name }}
+                   <span class="text-start">
+  {{ slotProps.data.val_name == 'This Week' ? 'Week' : slotProps.data.val_name }}
+</span>
+
                   </template>
                 </Column>
                 <Column headerClass="positoin-center" header="Sales">
@@ -61,7 +64,7 @@
                 <!-- Label Column -->
                 <Column header="Period">
                   <template #body="slotProps">
-                    {{ slotProps.data.val_name }}
+                     {{ slotProps.data.val_name == 'This Week' ? 'Week' : slotProps.data.val_name }}
                   </template>
                 </Column>
 
@@ -108,7 +111,7 @@
                 <!-- Label Column -->
                 <Column header="Period">
                   <template #body="slotProps">
-                    <span>{{ slotProps.data.val_name }}</span>
+                    <span>  {{ slotProps.data.val_name == 'This Week' ? 'Week' : slotProps.data.val_name }}</span>
                   </template>
                 </Column>
 
@@ -117,6 +120,7 @@
                   <template #body="slotProps">
                     <div class="item-table w-100">
                       <span class="text-start">{{ slotProps.data.target_transactions }}</span>
+                      
                       <span class="text-start">{{ slotProps.data.sale_amount }}</span>
                     </div>
                   </template>
@@ -127,7 +131,10 @@
                   <template #body="slotProps">
                     <div class="item-table w-100">
                       <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
-                      <span class="text-start">{{ slotProps.data.target_amount }}</span>
+                      <span class="text-start">
+  {{ slotProps.data.target_amount ? Number(slotProps.data.target_amount).toFixed(2) : '0.00' }}
+</span>
+
                     </div>
                   </template>
                 </Column>
@@ -138,7 +145,10 @@
                     <div class="item-table w-100"
                     >
                       <span class="text-start">{{ slotProps.data.different_transactions }}</span>
-                      <span class="text-start">{{ slotProps.data.different_amount }}</span>
+                      <span class="text-start">
+  {{ slotProps.data.different_amount != null ? Number(slotProps.data.different_amount).toFixed(2) : '0.00' }}
+</span>
+
                     </div>
                   </template>
                 </Column>
