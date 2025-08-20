@@ -4,7 +4,7 @@
       Sales by Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table cart-table" style="height: 340px;">
+      <div class="table-container product-bg-table cart-table" style="height: 317px;">
         <div ref="chart" style="width: 100%;height: 110%;"></div>
       </div>
     </template>
@@ -54,7 +54,7 @@ const setChart = () => {
       return result;
     },
     textStyle: {
-      fontSize: 18,
+      fontSize: 13,
       fontWeight: 'bold',
       color: '#000'  // Black tooltip text
     }
@@ -62,7 +62,7 @@ const setChart = () => {
   legend: {
     data: ['Frame Amt', 'Lens Amt', 'Glasses Amt', 'Other Amt'],
     textStyle: {
-      fontSize: 18,
+      fontSize: 13,
       fontWeight: 'bold',
       color: '#000'  // Black legend text
     }
@@ -71,7 +71,7 @@ const setChart = () => {
     type: 'category',
     data: dates,
     axisLabel: {
-      fontSize: 18,
+      fontSize: 13,
       fontWeight: 'bold',
       color: '#000'  // Black xAxis labels
     }
@@ -81,12 +81,12 @@ const setChart = () => {
     name: 'Amount ($)',
     axisLabel: {
       formatter: '${value}',
-      fontSize: 18,
+      fontSize: 13,
       fontWeight: 'bold',
       color: '#000'  // Black yAxis labels
     },
     nameTextStyle: {
-      fontSize: 18,
+      fontSize: 13,
       fontWeight: 'bold',
       color: '#000'  // Black yAxis name
     }

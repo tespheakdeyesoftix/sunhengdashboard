@@ -260,7 +260,7 @@ function onOutletChange(event) {
 }
 
 .time {
-  font-size: 16px;
+  font-size: 13px;
   color: black;
   font-weight: bold;
 }

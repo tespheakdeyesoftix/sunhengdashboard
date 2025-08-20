@@ -43,7 +43,7 @@ const setChart = () => {
 
   const option = {
     textStyle: {
-      fontSize: 18,
+      fontSize: 13,
       fontFamily: 'Arial, sans-serif',
       color: '#000',
       fontWeight: 'bold'
@@ -58,7 +58,7 @@ const setChart = () => {
         return result;
       },
       textStyle: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold',
         color: '#000'
       }
@@ -66,7 +66,7 @@ const setChart = () => {
     legend: {
       data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
       textStyle: {
-        fontSize: 18,
+        fontSize: 13,
         color: '#000',
         fontWeight: 'bold'
       }
@@ -75,7 +75,7 @@ const setChart = () => {
       type: 'category',
       data: dates,
       axisLabel: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold',
         color: '#000'
       }
@@ -84,12 +84,12 @@ const setChart = () => {
       type: 'value',
       name: 'Count',
       nameTextStyle: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold',
         color: '#000'
       },
       axisLabel: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold',
         color: '#000'
       }

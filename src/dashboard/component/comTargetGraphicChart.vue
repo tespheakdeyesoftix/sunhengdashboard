@@ -4,7 +4,7 @@
       Sales by Number of Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table cart-table" style="height: 340px;">
+      <div class="table-container product-bg-table cart-table" style="height: 317px;">
         <div ref="chart" style="height: 110%;"></div>
       </div>
     </template>
@@ -45,7 +45,7 @@ const setChart = () => {
 
   const option = {
     textStyle: {
-      fontSize: 18,
+      fontSize: 13,
       fontFamily: 'Arial, sans-serif',
       color: '#000',
       fontWeight: 'bold'
@@ -60,14 +60,14 @@ const setChart = () => {
         return result;
       },
       textStyle: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold'
       }
     },
     legend: {
       data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty'],
       textStyle: {
-        fontSize: 18,
+        fontSize: 13,
         color: '#333',
         fontWeight: 'bold'
       }
@@ -76,7 +76,7 @@ const setChart = () => {
       type: 'category',
       data: dates,
       axisLabel: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold'
       }
     },
@@ -84,11 +84,11 @@ const setChart = () => {
       type: 'value',
       name: 'Quantity',
       nameTextStyle: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold'
       },
       axisLabel: {
-        fontSize: 18,
+        fontSize: 13,
         fontWeight: 'bold'
       }
     },
