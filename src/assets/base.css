@@ -91,9 +91,14 @@ body {
   border-color: gray !important;
 }
 .p-multiselect-overlay{
-      right: 72px !important;
+    right: 60px !important;
     inset-inline-start: unset !important;
     margin-top: 7px !important;
+}
+.p-multiselect-label{
+  
+    padding: 6px !important;
+
 }
 .p-datatable-gridlines .p-datatable-thead > tr > th{
   font-size: 10px !important;
@@ -109,4 +114,16 @@ body {
   padding: 5px;
   font-size: 12px !important;
   font-weight: bold;
+}
+.p-datatable-gridlines .p-datatable-thead > tr > th
+
+ {
+    border-width: 1px 0 1px 1px;
+    padding: 3px !important;
+}
+.p-multiselect{
+ font-size: 13px !important;
+}
+.p-multiselect-option{
+font-size: 13px !important;
 }

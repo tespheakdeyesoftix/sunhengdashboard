@@ -24,7 +24,7 @@
     optionLabel="outlet_name"
     placeholder="Select Outlet"
     :maxSelectedLabels="1"
-    style="min-width: 300px;"
+    style="min-width: 200px;max-height:35px !important;"
     :invalid="isInvalid"
     @change="onOutletChange"
   />
@@ -255,7 +255,7 @@ function onOutletChange(event) {
   border-radius: 20px;
   background-color: white;
   text-align: center;
-  line-height: 17px;
+  line-height: 13px;
   font-family:"alarm clock";
 }
 

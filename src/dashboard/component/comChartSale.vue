@@ -7,8 +7,8 @@
       </span>
       </template>
     <template #content>
-      <div class="table-container cart-table" style="height:308px;">
-    <div ref="chart" style="height:318px;"></div>
+      <div class="table-container cart-table" style="height:218px;">
+    <div ref="chart" style="height:238px;"></div>
      </div>
     </template>
   </Card>

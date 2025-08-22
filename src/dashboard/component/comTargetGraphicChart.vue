@@ -4,8 +4,8 @@
       Sales by Number of Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table cart-table" style="height: 240px;">
-        <div ref="chart" style="height: 250px;"></div>
+      <div class="table-container product-bg-table cart-table" style="height: 190px;">
+        <div ref="chart" style="height: 220px;"></div>
       </div>
     </template>
   </Card>
@@ -65,13 +65,18 @@ const setChart = () => {
       }
     },
     legend: {
-      data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty'],
-      textStyle: {
-        fontSize: 10,
-        color: '#333',
-        fontWeight: 'bold'
-      }
-    },
+  data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty'],
+  type: "plain",
+  left: "center",     // center the whole legend block
+  align: "auto",      // auto-align when wrapping (if needed)
+  itemGap: 5,         // space between legend items
+  textStyle: {
+    fontSize: 10,
+    color: '#333',
+    fontWeight: 'bold'
+  }
+},
+
     xAxis: {
       type: 'category',
       data: dates,

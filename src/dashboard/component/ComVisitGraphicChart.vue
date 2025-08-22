@@ -2,8 +2,8 @@
   <Card class="bg-visit-content">
     <template #title>Visit</template>
     <template #content>
-      <div class="table-container bg-visit-table cart-table" style="height: 308px;">
-        <div ref="chart" style="height: 318px;"></div>
+      <div class="table-container bg-visit-table cart-table" style="height: 230px;">
+        <div ref="chart" style="height: 250px;"></div>
       </div>
     </template>
   </Card>
@@ -64,13 +64,18 @@ const setChart = () => {
       }
     },
     legend: {
-      data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
-      textStyle: {
-        fontSize: 10,
-        color: '#000',
-        fontWeight: 'bold'
-      }
-    },
+  data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
+  type: "plain",
+  orient: "horizontal", // 🔹 keep all items in one row
+  left: "center",       // 🔹 center the legend block
+  itemGap: 5,          // 🔹 space between items (adjust as needed)
+  textStyle: {
+    fontSize: 10,
+    color: '#000',
+    fontWeight: 'bold'
+  }
+},
+
     xAxis: {
       type: 'category',
       data: dates,

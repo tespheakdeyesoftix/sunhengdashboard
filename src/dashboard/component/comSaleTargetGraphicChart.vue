@@ -4,8 +4,8 @@
       Sales by Products
     </template>
     <template #content>
-      <div class="table-container product-bg-table cart-table" style="height: 240px;">
-        <div ref="chart" style="height: 250px;"></div>
+      <div class="table-container product-bg-table cart-table" style="height: 189px;">
+        <div ref="chart" style="height: 220px;"></div>
       </div>
     </template>
   </Card>
@@ -59,14 +59,18 @@ const setChart = () => {
       color: '#000'  // Black tooltip text
     }
   },
-  legend: {
-    data: ['Frame Amt', 'Lens Amt', 'Glasses Amt', 'Other Amt'],
-    textStyle: {
-      fontSize: 10,
-      fontWeight: 'bold',
-      color: '#000'  // Black legend text
-    }
+legend: {
+  data: ['Frame Amt', 'Lens Amt', 'Glasses Amt', 'Other Amt'],
+  textStyle: {
+    fontSize: 10,
+    color: '#000'
   },
+  type: "plain",
+  left: "center",      // center the legend
+  orient: "horizontal", // 🔹 keep legend in one row
+  itemGap: 5,         // spacing between items (adjust as needed)
+},
+
   xAxis: {
     type: 'category',
     data: dates,
