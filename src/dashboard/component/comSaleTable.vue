@@ -132,7 +132,7 @@
                     <div class="item-table w-100">
                       <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
                       <span class="text-start">
-  {{ slotProps.data.target_amount ? Number(slotProps.data.target_amount).toFixed(2) : '0.00' }}
+  {{ slotProps.data.target_amount }}
 </span>
 
                     </div>
@@ -146,7 +146,7 @@
                     >
                       <span class="text-start">{{ slotProps.data.different_transactions }}</span>
                       <span class="text-start">
-  {{ slotProps.data.different_amount != null ? Number(slotProps.data.different_amount).toFixed(2) : '0.00' }}
+ {{ slotProps.data.different_amount }} 
 </span>
 
                     </div>
