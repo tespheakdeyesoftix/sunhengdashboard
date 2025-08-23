@@ -23,6 +23,7 @@ const loadData = async () => {
   result.value = await request('/GetData', 'POST', {
     procedure_name: 'sp_get_visit_graphic'
   });
+    setChart();
 };
 
 // ECharts setup
@@ -153,7 +154,6 @@ const setChart = () => {
 // Load data on component mount
 onMounted(async () => {
   await loadData();
-  setChart();
 });
 
 defineExpose({

@@ -24,6 +24,7 @@ const loadData = async () => {
   result.value = await request('/GetData', 'POST', {
     procedure_name: 'sp_get_sale_product_graphic'
   });
+    setChart();
 };
 
 const chart = ref(null);
@@ -151,7 +152,6 @@ const setChart = () => {
 // Load data on component mount
 onMounted(async () => {
   await loadData();
-  setChart();
 });
 
 defineExpose({

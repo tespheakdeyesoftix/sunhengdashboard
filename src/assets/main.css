@@ -19,9 +19,20 @@ html{
   margin: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+
   box-sizing: border-box;
   padding: 10px 10px 10px 0px ;
+}
+@media (min-height: 1200px) {
+  body {
+      overflow: hidden !important;
+  }
+}
+@media (max-height: 1200px) {
+  body {
+    max-height: 1200px !important;
+    overflow-x: auto !important;
+  }
 }
 
 .title{
@@ -64,6 +75,7 @@ html{
 .p-card-title{
       padding: 3px !important;
       color: white;
+      font-weight: 600 !important;
 }
 .p-card-title span {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -142,7 +154,7 @@ padding: 3px !important;
 }
 .datatable-class th span, 
 .datatable-class td span {
-font-weight: 500 !important;
+font-weight: bold !important;
 }
 
 .section-header th {
@@ -336,7 +348,7 @@ font-weight: bold;
 }
 .bg-visit .p-card{
       background-color: rgba(255, 255, 255, 0.571);
-      margin-top: 5px;
+      margin-top: 4px;
 }
 
 .bg-visit{
