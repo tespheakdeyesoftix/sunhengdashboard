@@ -54,6 +54,7 @@ const initChart = () => {
     },
     legend: {
       data: ['Actual Sale', 'Estimate Sale'],
+      top: -5, 
       textStyle: {
         fontSize: 10,
         fontWeight: 'bold',

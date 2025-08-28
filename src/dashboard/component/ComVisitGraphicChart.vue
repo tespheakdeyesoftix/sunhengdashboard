@@ -45,7 +45,6 @@ const setChart = () => {
   const option = {
     textStyle: {
       fontSize: 10,
-      fontFamily: 'Arial, sans-serif',
       color: '#000',
       fontWeight: 'bold'
     },
@@ -67,6 +66,7 @@ const setChart = () => {
     legend: {
   data: ['Visits', 'Exams', 'Solds Exams', 'Solds', 'Target'],
   type: "plain",
+  top: -5,
   orient: "horizontal", // 🔹 keep all items in one row
   left: "center",       // 🔹 center the legend block
   itemGap: 5,          // 🔹 space between items (adjust as needed)

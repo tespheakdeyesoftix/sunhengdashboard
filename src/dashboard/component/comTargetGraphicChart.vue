@@ -47,7 +47,6 @@ const setChart = () => {
   const option = {
     textStyle: {
       fontSize: 10,
-      fontFamily: 'Arial, sans-serif',
       color: '#000',
       fontWeight: 'bold'
     },
@@ -69,7 +68,8 @@ const setChart = () => {
   data: ['Frame Qty', 'Lens Qty', 'Glasses Qty', 'Other Qty'],
   type: "plain",
   left: "center",     // center the whole legend block
-  align: "auto",      // auto-align when wrapping (if needed)
+  align: "auto",
+  top: -5,     
   itemGap: 5,         // space between legend items
   textStyle: {
     fontSize: 10,

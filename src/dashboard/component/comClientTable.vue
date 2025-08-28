@@ -1,5 +1,5 @@
 <template>
-        <Card class="cs-w-100 bg-visit-table bg-visit-table-10">
+        <Card class="cs-w-100 bg-visit-table bg-visit-table-10 margin-top-10" style="margin-top: 7.5px;">
   <template #title>Performance Overview</template>
   <template #content>
     <DataTable :value="result" showGridlines stripedRows class="datatable-class">

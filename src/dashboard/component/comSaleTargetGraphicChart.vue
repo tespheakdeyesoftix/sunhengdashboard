@@ -64,12 +64,14 @@ legend: {
   data: ['Frame Amt', 'Lens Amt', 'Glasses Amt', 'Other Amt'],
   textStyle: {
     fontSize: 10,
-    color: '#000'
+    color: '#000',
+    fontWeight: 'bold'
   },
   type: "plain",
   left: "center",      // center the legend
   orient: "horizontal", // 🔹 keep legend in one row
-  itemGap: 5,         // spacing between items (adjust as needed)
+  itemGap: 5,   
+  top: -5,
 },
 
   xAxis: {

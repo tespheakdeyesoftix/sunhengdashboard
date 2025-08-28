@@ -24,13 +24,6 @@
   <Column field="total_amount" header="T.Amount" />
 
   <Column field="balance" header="Balance" />
-
-  <!-- Assuming Inventory Stock field is `inventory_stock` -->
-  <Column
-    field="inventory_stock"
-    header="Stock"
-    :body="roundInventoryStock"
-  />
 </DataTable>
        
         </template>
