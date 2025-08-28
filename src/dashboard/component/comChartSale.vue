@@ -38,77 +38,90 @@ const initChart = () => {
 
   const myChart = echarts.init(chart.value);
 
-  const option = {
+const option = {
+  textStyle: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#000'
+  },
+  tooltip: {
+    trigger: 'axis',
     textStyle: {
       fontSize: 10,
       fontWeight: 'bold',
-      color: '#000'  // Black global text
+      color: '#000'
     },
-    tooltip: {
-      trigger: 'axis',
-      textStyle: {
-        fontSize: 10,
-        fontWeight: 'bold',
-        color: '#000'  // Black tooltip text
-      }
+    valueFormatter: (value) => {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(value);
+    }
+  },
+  legend: {
+    data: ['Actual Sale', 'Estimate Sale'],
+    top: -5,
+    textStyle: {
+      fontSize: 10,
+      fontWeight: 'bold',
+      color: '#000'
+    }
+  },
+  xAxis: {
+    type: 'category',
+    data: result.value.map(item => {
+      const date = new Date(item.cal_date);
+      return date.getDate();
+    }),
+    boundaryGap: false,
+    axisLabel: {
+      fontSize: 10,
+      fontWeight: 'bold',
+      color: '#000'
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'Sales',
+    nameTextStyle: {
+      fontSize: 10,
+      fontWeight: 'bold',
+      color: '#000'
     },
-    legend: {
-      data: ['Actual Sale', 'Estimate Sale'],
-      top: -5, 
-      textStyle: {
-        fontSize: 10,
-        fontWeight: 'bold',
-        color: '#000'  // Black legend text
-      }
-    },
-    xAxis: {
-      type: 'category',
-      data: result.value.map(item => {
-        const date = new Date(item.cal_date);
-        return date.getDate();
-      }),
-      boundaryGap: false,
-      axisLabel: {
-        fontSize: 10,
-        fontWeight: 'bold',
-        color: '#000'  // Black xAxis labels
-      }
-    },
-    yAxis: {
-      type: 'value',
-      name: 'Sales',
-      nameTextStyle: {
-        fontSize: 10,
-        fontWeight: 'bold',
-        color: '#000'  // Black yAxis name
+    axisLabel: {
+      formatter: (value) => {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(value);
       },
-      axisLabel: {
-        fontSize: 10,
-        fontWeight: 'bold',
-        color: '#000'  // Black yAxis labels
+      fontSize: 10,
+      fontWeight: 'bold',
+      color: '#000'
+    }
+  },
+  series: [
+    {
+      name: 'Actual Sale',
+      type: 'line',
+      data: result.value.map(item => item.actual_sale ?? 0),
+      smooth: true,
+      label: {
+        show: false
       }
     },
-    series: [
-      {
-        name: 'Actual Sale',
-        type: 'line',
-        data: result.value.map(item => item.actual_sale),
-        smooth: true,
-        label: {
-          show: false  // Hide values on lines
-        }
-      },
-      {
-        name: 'Estimate Sale',
-        type: 'line',
-        data: result.value.map(item => item.estimate_sale),
-        smooth: true,
-        label: {
-          show: false  // Hide values on lines
-        }
+    {
+      name: 'Estimate Sale',
+      type: 'line',
+      data: result.value.map(item => item.estimate_sale ?? 0),
+      smooth: true,
+      label: {
+        show: false
       }
-    ]
-  };
+    }
+  ]
+};
+
 
   myChart.setOption(option);
 };
