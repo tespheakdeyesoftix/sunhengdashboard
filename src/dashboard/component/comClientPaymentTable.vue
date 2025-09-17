@@ -16,14 +16,11 @@
 </Column>
 
   <!-- Change header label -->
-  <Column field="payment_amount" header="P.Amount" />
-
-  <Column field="payments" header="Payments" />
-
-  <!-- Change header label -->
-  <Column field="total_amount" header="T.Amount" />
-
-  <Column field="balance" header="Balance" />
+   <Column field="unpaids" header="No paid" />
+   <Column field="total_amount" header="T.Amount" />
+   <Column field="payment_amount" header="P.Amount" />
+   <Column field="balance" header="remain" />
+   <Column field="remark" header="Remark" />
 </DataTable>
        
         </template>

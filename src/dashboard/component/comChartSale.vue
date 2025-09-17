@@ -59,7 +59,7 @@ const option = {
     }
   },
   legend: {
-    data: ['Actual Sale', 'Estimate Sale'],
+    data: ['Actual Sale', 'Estimate Sale' , 'Actual Cost' , 'Actual Profit'],
     top: -5,
     textStyle: {
       fontSize: 10,
@@ -118,7 +118,25 @@ const option = {
       label: {
         show: false
       }
-    }
+    },
+    {
+      name: 'Actual Cost',
+      type: 'line',
+      data: result.value.map(item => item.total_cost ?? 0),
+      smooth: true,
+      label: {
+        show: false
+      }
+    },
+    {
+      name: 'Actual Profit',
+      type: 'line',
+      data: result.value.map(item => item.total_profit ?? 0),
+      smooth: true,
+      label: {
+        show: false
+      }
+    }  
   ]
 };
 

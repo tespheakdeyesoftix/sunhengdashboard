@@ -28,7 +28,7 @@
                 <Column headerClass="positoin-center" header="Sales">
                   <template #body="slotProps">
                     <div class="item-table w-100">
-                      <span class="text-start">{{ slotProps.data.target_transactions }}</span>
+                      <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
                       <span class="text-start">{{ slotProps.data.sale_amount }}</span>
                     </div>
                   </template>
@@ -36,7 +36,7 @@
                 <Column headerClass="positoin-center" header="Target">
                   <template #body="slotProps">
                     <div class="item-table w-100">
-                      <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
+                      <span class="text-start">{{ slotProps.data.target_transactions }}</span>
                       <span class="text-start">{{ slotProps.data.target_amount }}</span>
                     </div>
                   </template>
@@ -72,7 +72,7 @@
                 <Column headerClass="positoin-center" header="Actual">
                   <template #body="slotProps">
                     <div class="item-table w-100">
-                      <span class="text-start">{{ slotProps.data.target_transactions }}</span>
+                      <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
                       <span class="text-start">{{ slotProps.data.sale_amount }}</span>
                     </div>
                   </template>
@@ -82,7 +82,7 @@
                 <Column headerClass="positoin-center" header="Estimate">
                   <template #body="slotProps">
                     <div class="item-table w-100">
-                      <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
+                      <span class="text-start">{{ slotProps.data.target_transactions }}</span>
                       <span class="text-start">{{ slotProps.data.target_amount }}</span>
                     </div>
                   </template>
@@ -119,7 +119,7 @@
                 <Column header="Actual" headerClass="text-center">
                   <template #body="slotProps">
                     <div class="item-table w-100">
-                      <span class="text-start">{{ slotProps.data.target_transactions }}</span>
+                      <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
                       
                       <span class="text-start">{{ slotProps.data.sale_amount }}</span>
                     </div>
@@ -130,7 +130,8 @@
                 <Column header="Estimate" headerClass="text-center">
                   <template #body="slotProps">
                     <div class="item-table w-100">
-                      <span class="text-start">{{ slotProps.data.sale_transactions }}</span>
+                      
+                      <span class="text-start">{{ slotProps.data.target_transactions }}</span>
                       <span class="text-start">
   {{ slotProps.data.target_amount }}
 </span>
